@@ -80,11 +80,20 @@ a{color:inherit;text-decoration:none}
 .sx{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:16px;cursor:pointer;display:none}
 
 /* CATS */
+.cat-row-wrap{position:relative}
+.cat-row-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:44px;background:linear-gradient(to right,transparent,#fff);pointer-events:none;z-index:1}
 .cat-row{overflow-x:auto;-webkit-overflow-scrolling:touch;padding:10px 16px;scrollbar-width:none}
 .cat-row::-webkit-scrollbar{display:none}
-.cats{display:flex;gap:7px;width:max-content}
-.cat{padding:8px 16px;border-radius:99px;border:1px solid var(--border);font-size:12px;color:var(--muted);background:#fff;cursor:pointer;transition:all .2s;white-space:nowrap}
+.cats{display:flex;gap:7px;width:max-content;padding-right:32px}
+.cat{display:inline-flex;align-items:center;gap:5px;padding:9px 15px;border-radius:99px;border:1px solid var(--border);font-size:12.5px;color:var(--muted);background:#fff;cursor:pointer;transition:all .2s;white-space:nowrap}
 .cat.on{background:var(--dark);border-color:var(--dark);color:#fff;font-weight:500}
+/* ── GOLD / PLATINUM PILL STYLES ── */
+.dpill-gold.on{background:linear-gradient(135deg,var(--gold),#E8C76A);border-color:var(--gold);color:var(--dark)}
+.dpill-plat.on{background:linear-gradient(135deg,#3B3060,#6B5EA8);border-color:#3B3060;color:#fff}
+.cdt-pill.gold-pill.on{background:linear-gradient(135deg,var(--gold),#E8C76A);border-color:var(--gold);color:var(--dark)}
+.cdt-pill.plat-pill.on{background:linear-gradient(135deg,#3B3060,#6B5EA8);border-color:#3B3060;color:#fff}
+/* ── NO-DISCOUNT NOTE ── */
+.no-disc-note{font-size:11px;color:var(--muted);padding:7px 16px;background:rgba(0,0,0,.02);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:5px}
 
 /* ── SERVICES ── */
 #services{padding:12px 16px 0}
@@ -274,11 +283,11 @@ a{color:inherit;text-decoration:none}
 <!-- STICKY HEADER -->
 <div class="sticky-hdr">
   <div class="top-row">
-    <div class="disc-label"><strong>Anniversary offer</strong><span class="dpill-note" style="font-size:10px;color:var(--muted);display:block">Applies on cart ≥ ₹999</span></div>
+    <div class="disc-label"><strong>Anniversary offers</strong><span class="dpill-note" style="font-size:10px;color:var(--muted);display:block">Gold 10% · Platinum 20% · min ₹999</span></div>
     <div class="disc-pills">
       <button class="dpill on" onclick="setDisc(0,this)">Regular</button>
-      <button class="dpill" onclick="setDisc(10,this)">10%</button>
-      <button class="dpill" onclick="setDisc(20,this)">20%</button>
+      <button class="dpill dpill-gold" onclick="setDisc(10,this)">🥇 Gold</button>
+      <button class="dpill dpill-plat" onclick="setDisc(20,this)">💎 Platinum</button>
     </div>
     <button class="cart-btn" onclick="openCart()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -292,18 +301,20 @@ a{color:inherit;text-decoration:none}
       <span class="sx" id="sx" onclick="clearSearch()">✕</span>
     </div>
   </div>
+  <div class="cat-row-wrap">
   <div class="cat-row">
     <div class="cats" id="cat-list">
-      <button class="cat on" data-cat="all">All</button>
-      <button class="cat" data-cat="colour">Hair colour</button>
-      <button class="cat" data-cat="smoothen">Smoothening</button>
-      <button class="cat" data-cat="spa">Hair spa</button>
-      <button class="cat" data-cat="nails">Nails</button>
-      <button class="cat" data-cat="facials">Facials</button>
-      <button class="cat" data-cat="skin">Skin care</button>
-      <button class="cat" data-cat="wax">Waxing</button>
-      <button class="cat" data-cat="other">Threading & more</button>
+      <button class="cat on" data-cat="all">✦ All</button>
+      <button class="cat" data-cat="colour">🎨 Hair colour</button>
+      <button class="cat" data-cat="smoothen">✨ Smoothening</button>
+      <button class="cat" data-cat="spa">💆‍♀️ Hair spa</button>
+      <button class="cat" data-cat="nails">💅 Nails</button>
+      <button class="cat" data-cat="facials">🫧 Facials</button>
+      <button class="cat" data-cat="skin">🌿 Skin care</button>
+      <button class="cat" data-cat="wax">🌸 Waxing</button>
+      <button class="cat" data-cat="other">✂️ Threading & more</button>
     </div>
+  </div>
   </div>
 </div>
 
@@ -311,7 +322,7 @@ a{color:inherit;text-decoration:none}
 <div class="anni-banner" style="margin-top:12px">
   <div class="anni-tag">🎉 2nd Anniversary Special</div>
   <div class="anni-banner-title">Exclusive Member Discounts</div>
-  <div class="anni-banner-sub">Add services to cart (min. ₹999) and unlock<br>10% or 20% off — celebrating 2 beautiful years with you!</div>
+  <div class="anni-banner-sub">Add services to cart (min. ₹999) and unlock<br>🥇 <strong>Gold 10%</strong> or 💎 <strong>Platinum 20%</strong> off — celebrating 2 beautiful years with you!<br><small style="opacity:.7;font-size:11px">*Waxing &amp; threading services excluded from discount.</small></div>
 </div>
 
 <!-- SERVICES -->
@@ -413,11 +424,11 @@ a{color:inherit;text-decoration:none}
   <div class="d-footer">
     <div class="cart-disc-toggle" id="cdt">
       <div class="cdt-title">🎂 Anniversary discount</div>
-      <div class="cdt-sub">Min. cart value: <span class="min-amt">₹999</span> to unlock</div>
+      <div class="cdt-sub">Min. cart: <span class="min-amt">₹999</span> · Waxing &amp; threading excluded</div>
       <div class="cdt-pills">
         <button class="cdt-pill on" data-d="0" onclick="setDiscFromCart(0,this)"><span class="cp-pct">–</span><span class="cp-lbl">Regular</span></button>
-        <button class="cdt-pill" data-d="10" id="cp10" onclick="setDiscFromCart(10,this)"><span class="cp-pct">10%</span><span class="cp-lbl">off</span></button>
-        <button class="cdt-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-pct">20%</span><span class="cp-lbl">off</span></button>
+        <button class="cdt-pill gold-pill" data-d="10" id="cp10" onclick="setDiscFromCart(10,this)"><span class="cp-pct">🥇</span><span class="cp-lbl">Gold 10%</span></button>
+        <button class="cdt-pill plat-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-pct">💎</span><span class="cp-lbl">Platinum 20%</span></button>
       </div>
     </div>
     <div class="cart-min-warn" id="cmw"></div>
@@ -497,36 +508,34 @@ SVCS.forEach(s=>lenSel[s.id]=0);
 // ── HELPERS ──
 function inr(p){return '₹'+Math.round(p).toLocaleString('en-IN')}
 function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
+// Waxing and threading/more are never discounted, even in a qualifying cart
+const EXCL=['wax','other'];
+function isDiscountable(cat){return !EXCL.includes(cat)}
 function discTotal(){
   const tot=cartTotal();
   if(disc===0||tot<999)return tot;
-  return cart.reduce((a,c)=>a+Math.round(c.price*(1-disc/100)),0);
-}
-function discPrice(p){
-  const tot=cartTotal();
-  if(disc===0||tot<999)return p;
-  return Math.round(p*(1-disc/100));
-}
-// For service display: show potential discounted price only if disc>0
-function dispPrice(p){
-  if(disc===0)return p;
-  return Math.round(p*(1-disc/100));
+  return cart.reduce((a,c)=>{
+    const p=isDiscountable(c.cat)?Math.round(c.price*(1-disc/100)):c.price;
+    return a+p;
+  },0);
 }
 
 // ── RENDER SERVICES ──
-function priceHTML(p){
-  const shown=disc>0?dispPrice(p):p;
+function priceHTML(p,cat){
+  const tot=cartTotal();
+  const discApplies=disc>0&&tot>=999&&isDiscountable(cat);
+  const shown=discApplies?Math.round(p*(1-disc/100)):p;
   let h=`<div class="svc-prices">`;
-  if(disc>0)h+=`<div class="p-was">${inr(p)}</div>`;
+  if(discApplies)h+=`<div class="p-was">${inr(p)}</div>`;
   h+=`<div class="p-now">${inr(shown)}</div>`;
-  if(disc>0)h+=`<div class="p-save">Save ${inr(p-shown)}</div>`;
+  if(discApplies)h+=`<div class="p-save">Save ${inr(p-shown)}</div>`;
   h+=`</div>`;
   return h;
 }
 
-function addBtnHTML(uid,name,price,sub){
+function addBtnHTML(uid,name,price,sub,cat){
   const inC=cart.some(c=>c.uid===uid);
-  return `<button class="add-btn${inC?' added':''}" data-uid="${uid}" onclick="toggleCart('${uid}','${esc(name)}',${price},'${esc(sub)}')">${inC?'✓ Added':'+ Add'}</button>`;
+  return `<button class="add-btn${inC?' added':''}" data-uid="${uid}" onclick="toggleCart('${uid}','${esc(name)}',${price},'${esc(sub)}','${cat}')">${inC?'✓ Added':'+ Add'}</button>`;
 }
 function esc(s){return s.replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
 
@@ -540,7 +549,7 @@ function lenSvcHTML(s){
     <div class="len-bar">${lenBtns}</div>
     <div class="svc-row">
       <div class="svc-name">${sub}</div>
-      <div class="svc-right">${priceHTML(price)}${addBtnHTML(uid,s.title,price,sub)}</div>
+      <div class="svc-right">${priceHTML(price,s.cat)}${addBtnHTML(uid,s.title,price,sub,s.cat)}</div>
     </div>
   </div>`;
 }
@@ -552,11 +561,12 @@ function flatGrpHTML(g,q){
     const uid=`flat_${i.n.replace(/[^a-z0-9]/gi,'_')}`;
     return `<div class="svc-row">
       <div class="svc-name">${i.n}</div>
-      <div class="svc-right">${priceHTML(i.p)}${addBtnHTML(uid,i.n,i.p,'')}</div>
+      <div class="svc-right">${priceHTML(i.p,g.cat)}${addBtnHTML(uid,i.n,i.p,'',g.cat)}</div>
     </div>`;
   }).join('');
   const note=g.note?`<div class="note-bar">${g.note}</div>`:'';
-  return `<div class="svc-grp"><div class="svc-grp-hdr"><span class="svc-grp-title">${g.group}</span><span class="svc-grp-tag">${g.tag}</span></div>${note}${rows}</div>`;
+  const noDisc=!isDiscountable(g.cat)?`<div class="no-disc-note">🚫 Anniversary discount not applicable on this category.</div>`:'';
+  return `<div class="svc-grp"><div class="svc-grp-hdr"><span class="svc-grp-title">${g.group}</span><span class="svc-grp-tag">${g.tag}</span></div>${noDisc}${note}${rows}</div>`;
 }
 
 function render(){
@@ -588,6 +598,10 @@ function render(){
 function setLen(id,i){lenSel[id]=i;render()}
 
 function setDisc(d,btn){
+  if(d>0&&cartTotal()<999){
+    alert('Add services worth ₹999 or more to unlock this discount.');
+    return;
+  }
   disc=d;
   document.querySelectorAll('.dpill').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -640,10 +654,10 @@ function clearSearch(){
 }
 
 // ── CART ──
-function toggleCart(uid,name,price,sub){
+function toggleCart(uid,name,price,sub,cat){
   const idx=cart.findIndex(c=>c.uid===uid);
   if(idx>-1)cart.splice(idx,1);
-  else cart.push({uid,name,price,sub});
+  else cart.push({uid,name,price,sub,cat});
   // if disc was set but cart drops below 999, reset
   if(disc>0&&cartTotal()<999){
     disc=0;
@@ -685,9 +699,11 @@ function renderCart(){
   }
 
   body.innerHTML=cart.map(c=>{
-    const dp=disc>0&&tot>=999?Math.round(c.price*(1-disc/100)):c.price;
+    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+    const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
+    const noDiscTag=disc>0&&tot>=999&&!isDiscountable(c.cat)?`<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px">No discount on this service</span>`:'';
     return `<div class="cart-item">
-      <div style="flex:1;min-width:0"><div class="ci-name">${c.name}</div><div class="ci-sub">${c.sub||''}</div></div>
+      <div style="flex:1;min-width:0"><div class="ci-name">${c.name}</div><div class="ci-sub">${c.sub||''}${noDiscTag}</div></div>
       <div class="ci-price">${inr(dp)}</div>
       <button class="ci-rm" onclick="removeCart('${c.uid}')">✕</button>
     </div>`;
@@ -758,7 +774,8 @@ function openBook(){
   const csp=document.getElementById('csp');
   if(cart.length){
     const items=cart.map(c=>{
-      const dp=disc>0&&tot>=999?Math.round(c.price*(1-disc/100)):c.price;
+      const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+      const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
       return `<div class="csp-item"><span>${c.name}${c.sub?' ('+c.sub+')':''}</span><span>${inr(dp)}</span></div>`;
     }).join('');
     csp.innerHTML=`<div class="csp-title">Selected services</div>${items}
@@ -788,7 +805,8 @@ function submitBook(){
   if(!selTime){alert('Please choose a time');return;}
   const tot=cartTotal(),dtot=discTotal(),saved=tot-dtot;
   const svcs=cart.length?cart.map(c=>{
-    const dp=disc>0&&tot>=999?Math.round(c.price*(1-disc/100)):c.price;
+    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+    const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
     return `• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(dp)}`;
   }).join('%0A'):'• To be discussed';
   const totLine=disc>0&&tot>=999&&saved>0
