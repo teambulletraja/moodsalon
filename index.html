@@ -513,7 +513,7 @@ function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
 const EXCL=['wax','other'];
 function isDiscountable(cat,price){
   if(!EXCL.includes(cat))return true;
-  return price>1000;
+  return price>=1000;
 }
 function discTotal(){
   const tot=cartTotal();
