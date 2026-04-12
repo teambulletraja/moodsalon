@@ -385,11 +385,12 @@ a{color:inherit;text-decoration:none}
 
 <!-- MAP -->
 <div class="sec-label"><h2>Find us</h2></div>
-<div class="map-wrap">
+<div class="map-wrap" style="position:relative;cursor:pointer" onclick="window.open('https://share.google/lkxhMFdRsdhX9MUpB','_blank')">
+  <div style="position:absolute;inset:0;z-index:2;cursor:pointer"></div>
   <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.4823!2d72.9528!3d19.1720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b9e39c7a7a7b%3A0xabcd1234!2sMehul+Theatre+Circle%2C+Mulund+West%2C+Mumbai%2C+Maharashtra+400080!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 <div class="map-link">
-  <a href="https://share.google/AQRd0EnuLGU6i3rNT" target="_blank">
+  <a href="https://share.google/lkxhMFdRsdhX9MUpB" target="_blank">
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
     Open in Google Maps
   </a>
@@ -508,14 +509,17 @@ SVCS.forEach(s=>lenSel[s.id]=0);
 // ── HELPERS ──
 function inr(p){return '₹'+Math.round(p).toLocaleString('en-IN')}
 function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
-// Waxing and threading/more are never discounted, even in a qualifying cart
+// Waxing and threading excluded UNLESS individual service price > ₹1000
 const EXCL=['wax','other'];
-function isDiscountable(cat){return !EXCL.includes(cat)}
+function isDiscountable(cat,price){
+  if(!EXCL.includes(cat))return true;
+  return price>1000;
+}
 function discTotal(){
   const tot=cartTotal();
   if(disc===0||tot<999)return tot;
   return cart.reduce((a,c)=>{
-    const p=isDiscountable(c.cat)?Math.round(c.price*(1-disc/100)):c.price;
+    const p=isDiscountable(c.cat,c.price)?Math.round(c.price*(1-disc/100)):c.price;
     return a+p;
   },0);
 }
@@ -523,7 +527,7 @@ function discTotal(){
 // ── RENDER SERVICES ──
 function priceHTML(p,cat){
   const tot=cartTotal();
-  const discApplies=disc>0&&tot>=999&&isDiscountable(cat);
+  const discApplies=disc>0&&tot>=999&&isDiscountable(cat,p);
   const shown=discApplies?Math.round(p*(1-disc/100)):p;
   let h=`<div class="svc-prices">`;
   if(discApplies)h+=`<div class="p-was">${inr(p)}</div>`;
@@ -699,12 +703,15 @@ function renderCart(){
   }
 
   body.innerHTML=cart.map(c=>{
-    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
     const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
-    const noDiscTag=disc>0&&tot>=999&&!isDiscountable(c.cat)?`<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px">No discount on this service</span>`:'';
+    const noDiscTag=disc>0&&tot>=999&&!isDiscountable(c.cat,c.price)?`<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px">No discount on this service</span>`:'';
+    const priceDisplay=discApplies
+      ?`<div style="text-align:right"><div style="font-size:11px;color:var(--muted);text-decoration:line-through;line-height:1.2">${inr(c.price)}</div><div class="ci-price" style="color:var(--green)">${inr(dp)}</div></div>`
+      :`<div class="ci-price">${inr(dp)}</div>`;
     return `<div class="cart-item">
       <div style="flex:1;min-width:0"><div class="ci-name">${c.name}</div><div class="ci-sub">${c.sub||''}${noDiscTag}</div></div>
-      <div class="ci-price">${inr(dp)}</div>
+      ${priceDisplay}
       <button class="ci-rm" onclick="removeCart('${c.uid}')">✕</button>
     </div>`;
   }).join('');
@@ -774,7 +781,7 @@ function openBook(){
   const csp=document.getElementById('csp');
   if(cart.length){
     const items=cart.map(c=>{
-      const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+      const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
       const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
       return `<div class="csp-item"><span>${c.name}${c.sub?' ('+c.sub+')':''}</span><span>${inr(dp)}</span></div>`;
     }).join('');
@@ -805,7 +812,7 @@ function submitBook(){
   if(!selTime){alert('Please choose a time');return;}
   const tot=cartTotal(),dtot=discTotal(),saved=tot-dtot;
   const svcs=cart.length?cart.map(c=>{
-    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat);
+    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
     const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
     return `• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(dp)}`;
   }).join('%0A'):'• To be discussed';
