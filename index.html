@@ -97,7 +97,6 @@ a{color:inherit;text-decoration:none}
 
 /* ── SERVICES ── */
 #services{padding:12px 16px 0}
-.svc-grp{background:#fff;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:10px}
 .svc-grp-hdr{padding:12px 16px 10px;border-bottom:1px solid var(--border);background:#FAFAF7;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .svc-grp-title{font-size:13px;font-weight:500;color:var(--dark);flex:1}
 .svc-grp-tag{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--gold);font-weight:500;flex-shrink:0}
@@ -223,9 +222,26 @@ a{color:inherit;text-decoration:none}
 /* ── ANNI BANNER ── */
 .anni-banner{margin:12px 16px 0;background:linear-gradient(135deg,var(--gold-dk) 0%,var(--gold) 50%,var(--gold-dk) 100%);border-radius:var(--r);padding:16px 18px;color:var(--dark);position:relative;overflow:hidden}
 .anni-banner::before{content:"🎂";position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:48px;opacity:.15}
+.anni-banner::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 60%);animation:shimmer-banner 3.5s ease-in-out infinite}
+@keyframes shimmer-banner{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
 .anni-banner-title{font-family:"Playfair Display",serif;font-size:17px;font-weight:600;margin-bottom:4px}
 .anni-banner-sub{font-size:12px;opacity:.8;line-height:1.5}
 .anni-tag{display:inline-block;background:rgba(0,0,0,.15);border-radius:99px;font-size:10px;padding:3px 10px;margin-bottom:8px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+
+/* ── PREMIUM SERVICE CARD LIFT ── */
+.svc-grp{background:#fff;border-radius:var(--r);border:1px solid var(--border);overflow:hidden;margin-bottom:10px;transition:box-shadow .2s,transform .2s}
+.svc-grp:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-1px)}
+
+/* ── NEW SERVICE BADGE ── */
+.new-badge{display:inline-flex;align-items:center;gap:3px;background:linear-gradient(135deg,var(--gold),#E8C76A);color:var(--dark);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;margin-left:6px;vertical-align:middle}
+
+/* ── HERO SPARKLE ── */
+.hero-sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.sparkle{position:absolute;width:2px;height:2px;background:var(--gold2);border-radius:50%;opacity:0;animation:twinkle var(--dur,3s) ease-in-out var(--delay,0s) infinite}
+@keyframes twinkle{0%,100%{opacity:0;transform:scale(0)}50%{opacity:.7;transform:scale(1)}}
+
+/* ── TNC FOOTER ── */
+.tnc-footer{text-align:center;font-size:10.5px;color:var(--muted);padding:16px;line-height:1.6;border-top:1px solid var(--border);background:#FAFAF7}
 </style>
 </head>
 <body>
@@ -233,6 +249,14 @@ a{color:inherit;text-decoration:none}
 <!-- HERO -->
 <div class="hero">
   <div class="hero-shimmer"></div>
+  <div class="hero-sparkles">
+    <div class="sparkle" style="left:15%;top:20%;--dur:2.8s;--delay:0s"></div>
+    <div class="sparkle" style="left:80%;top:35%;--dur:3.2s;--delay:.6s"></div>
+    <div class="sparkle" style="left:55%;top:15%;--dur:2.5s;--delay:1.1s"></div>
+    <div class="sparkle" style="left:30%;top:70%;--dur:3.5s;--delay:.3s"></div>
+    <div class="sparkle" style="left:90%;top:60%;--dur:2.9s;--delay:1.7s"></div>
+    <div class="sparkle" style="left:5%;top:50%;--dur:3.1s;--delay:.9s"></div>
+  </div>
   <div class="hero-inner">
     <div class="anni-badge"><span class="star">🎂</span> 2nd Anniversary – Special Offers</div>
     <h1>Mood Hair &amp;<br><em>Beauty</em> Salon</h1>
@@ -259,19 +283,17 @@ a{color:inherit;text-decoration:none}
   <div class="offer-strip-scroll" id="marquee-inner">
     <span class="offer-chip">🎂 Celebrating 2 Years!</span>
     <span>✦</span>
-    <span class="offer-chip">10% off on cart above ₹999</span>
+    <span class="offer-chip">🥇 Anniversary offers applicable above ₹999/-</span>
     <span>✦</span>
-    <span class="offer-chip">20% off on cart above ₹999</span>
+    <span class="offer-chip">💎 Platinum 20% off · Valid till 15 May 2026</span>
     <span>✦</span>
     <span class="offer-chip">💇‍♀️ Hair · Nails · Skin · Spa</span>
     <span>✦</span>
     <span class="offer-chip">📍 Mulund West, Mumbai</span>
     <span>✦</span>
-    <span class="offer-chip">🎂 Celebrating 2 Years!</span>
+    <span class="offer-chip">🥇 Anniversary offers applicable above ₹999/-</span>
     <span>✦</span>
-    <span class="offer-chip">10% off on cart above ₹999</span>
-    <span>✦</span>
-    <span class="offer-chip">20% off on cart above ₹999</span>
+    <span class="offer-chip">💎 Platinum 20% off · Valid till 15 May 2026</span>
     <span>✦</span>
     <span class="offer-chip">💇‍♀️ Hair · Nails · Skin · Spa</span>
     <span>✦</span>
@@ -283,11 +305,11 @@ a{color:inherit;text-decoration:none}
 <!-- STICKY HEADER -->
 <div class="sticky-hdr">
   <div class="top-row">
-    <div class="disc-label"><strong>Anniversary offers</strong><span class="dpill-note" style="font-size:10px;color:var(--muted);display:block">Gold 10% · Platinum 20% · min ₹999</span></div>
+    <div class="disc-label"><strong>Anniversary offers</strong><span class="dpill-note" style="font-size:10px;color:var(--muted);display:block">Services ₹999+ get Gold 10% or Platinum 20%</span></div>
     <div class="disc-pills">
       <button class="dpill on" onclick="setDisc(0,this)">Regular</button>
       <button class="dpill dpill-gold" onclick="setDisc(10,this)">🥇 Gold</button>
-      <button class="dpill dpill-plat" onclick="setDisc(20,this)">💎 Platinum</button>
+      <button class="dpill dpill-plat" onclick="setDisc(20,this)">💎 Platinum<span style="font-size:9px;display:block;opacity:.75">Till 15 May</span></button>
     </div>
     <button class="cart-btn" onclick="openCart()">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
@@ -306,13 +328,16 @@ a{color:inherit;text-decoration:none}
     <div class="cats" id="cat-list">
       <button class="cat on" data-cat="all">✦ All</button>
       <button class="cat" data-cat="colour">🎨 Hair colour</button>
-      <button class="cat" data-cat="smoothen">✨ Smoothening</button>
+      <button class="cat" data-cat="smoothen">✨ Protein treatment</button>
       <button class="cat" data-cat="spa">💆‍♀️ Hair spa</button>
+      <button class="cat" data-cat="hairwash">🚿 Hair wash & blowdry</button>
+      <button class="cat" data-cat="haircut">✂️ Hair cut</button>
+      <button class="cat" data-cat="styling">💫 Styling</button>
       <button class="cat" data-cat="nails">💅 Nails</button>
       <button class="cat" data-cat="facials">🫧 Facials</button>
       <button class="cat" data-cat="skin">🌿 Skin care</button>
       <button class="cat" data-cat="wax">🌸 Waxing</button>
-      <button class="cat" data-cat="other">✂️ Threading & more</button>
+      <button class="cat" data-cat="thread">🧵 Threading</button>
     </div>
   </div>
   </div>
@@ -322,7 +347,7 @@ a{color:inherit;text-decoration:none}
 <div class="anni-banner" style="margin-top:12px">
   <div class="anni-tag">🎉 2nd Anniversary Special</div>
   <div class="anni-banner-title">Exclusive Member Discounts</div>
-  <div class="anni-banner-sub">Add services to cart (min. ₹999) and unlock<br>🥇 <strong>Gold 10%</strong> or 💎 <strong>Platinum 20%</strong> off — celebrating 2 beautiful years with you!<br><small style="opacity:.7;font-size:11px">*Waxing &amp; threading services excluded from discount.</small></div>
+  <div class="anni-banner-sub">Add services to cart (min. ₹999) and unlock<br>🥇 <strong>Gold 10%</strong> or 💎 <strong>Platinum 20%</strong> off — celebrating 2 beautiful years with you!<br><small style="opacity:.7;font-size:11px">*Discount applies on each service individually priced ₹999 &amp; above. 💎 Platinum 20% valid till 15 May 2026.</small></div>
 </div>
 
 <!-- SERVICES -->
@@ -396,6 +421,10 @@ a{color:inherit;text-decoration:none}
   </a>
 </div>
 
+<div class="tnc-footer">
+  <strong style="color:var(--dark)">T&amp;C Apply</strong> · Anniversary discounts apply on services individually priced ₹999 &amp; above.<br>
+  Bundling lower-priced services does not make them eligible. 💎 Platinum 20% offer valid till 15 May 2026 only.
+</div>
 <div class="page-pad"></div>
 
 <!-- BOTTOM BAR -->
@@ -425,11 +454,11 @@ a{color:inherit;text-decoration:none}
   <div class="d-footer">
     <div class="cart-disc-toggle" id="cdt">
       <div class="cdt-title">🎂 Anniversary discount</div>
-      <div class="cdt-sub">Min. cart: <span class="min-amt">₹999</span> · Waxing &amp; threading excluded</div>
+      <div class="cdt-sub">Min. cart: <span class="min-amt">₹999</span> · Services priced ₹999 &amp; above get the offer</div>
       <div class="cdt-pills">
         <button class="cdt-pill on" data-d="0" onclick="setDiscFromCart(0,this)"><span class="cp-pct">–</span><span class="cp-lbl">Regular</span></button>
         <button class="cdt-pill gold-pill" data-d="10" id="cp10" onclick="setDiscFromCart(10,this)"><span class="cp-pct">🥇</span><span class="cp-lbl">Gold 10%</span></button>
-        <button class="cdt-pill plat-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-pct">💎</span><span class="cp-lbl">Platinum 20%</span></button>
+        <button class="cdt-pill plat-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-pct">💎</span><span class="cp-lbl">Platinum 20%</span><span style="font-size:9px;display:block;opacity:.7;margin-top:1px">Till 15 May</span></button>
       </div>
     </div>
     <div class="cart-min-warn" id="cmw"></div>
@@ -439,6 +468,7 @@ a{color:inherit;text-decoration:none}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book these services
     </button>
+    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Discount on services priced ₹999 &amp; above individually.<br>💎 Platinum 20% valid till 15 May 2026.</div>
   </div>
 </div>
 
@@ -455,8 +485,8 @@ a{color:inherit;text-decoration:none}
     </div>
     <div id="bform">
       <div class="csp" id="csp"></div>
-      <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" id="bk-name" placeholder="Full name"></div>
-      <div class="form-group"><label class="form-label">Phone number</label><input class="form-input" type="tel" id="bk-phone" placeholder="+91 98765 43210"></div>
+      <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" id="bk-name" placeholder="Full name" autocomplete="name" inputmode="text"></div>
+      <div class="form-group"><label class="form-label">Phone number</label><input class="form-input" type="tel" id="bk-phone" placeholder="+91 98765 43210" autocomplete="tel" inputmode="tel"></div>
       <div class="form-group"><label class="form-label">Choose a date</label><div class="date-grid" id="dgrid"></div></div>
       <div class="form-group"><label class="form-label">Choose a time</label><div class="time-grid" id="tgrid"></div></div>
       <div class="form-group"><label class="form-label">Notes (optional)</label><textarea class="form-input" id="bk-notes" rows="2" placeholder="Any special requests…" style="resize:none"></textarea></div>
@@ -479,8 +509,8 @@ const SVCS=[
   {id:'bal',cat:'colour',title:'Balayage / highlights',tag:'Hair colour',lens:HL,prices:[3750,5000,6000,8125,10000]},
   {id:'glo',cat:'colour',title:'Global hair colour',tag:'Hair colour',lens:HL,prices:[2500,3750,5000,6000,7200]},
   {id:'pre',cat:'colour',title:'Pre-lightening',tag:'Hair colour',lens:HL,prices:[1875,2500,3750,5000,6000]},
-  {id:'bot',cat:'smoothen',title:'Hair botox',tag:'Smoothening',lens:HL7,prices:[3125,4375,5000,6250,7500,9375,11250]},
-  {id:'nan',cat:'smoothen',title:'Nanoplastia',tag:'Smoothening',lens:HL7,prices:[3125,4375,5625,6875,8125,10000,11875]},
+  {id:'bot',cat:'smoothen',title:'Hair botox',tag:'Protein treatment',lens:HL7,prices:[3125,4375,5000,6250,7500,9375,11250]},
+  {id:'nan',cat:'smoothen',title:'Nanoplastia',tag:'Protein treatment',lens:HL7,prices:[3125,4375,5625,6875,8125,10000,11875]},
   {id:'sp0',cat:'spa',title:'Loreal hair spa',tag:'Hair spa',lens:SL,prices:[875,1000,1250,1500]},
   {id:'sp1',cat:'spa',title:'Argan hair spa',tag:'Hair spa',lens:SL,prices:[1250,1500,1750,1875]},
   {id:'sp2',cat:'spa',title:'Shea hair spa',tag:'Hair spa',lens:SL,prices:[1875,2125,2250,2375]},
@@ -493,10 +523,11 @@ const FLAT=[
   {cat:'nails',group:'Pedicure',tag:'Nails',items:[{n:'Basic pedicure',p:500},{n:'Berry pedicure',p:800},{n:'Mint pedicure',p:1500},{n:'Bubblegum pedicure',p:1500},{n:'Coffee pedicure',p:2000}]},
   {cat:'facials',group:'Luxury facial menu',tag:'Facials',items:[{n:'Express facial',p:1250},{n:'Fruit punch facial',p:1875},{n:'Gold facial',p:2125},{n:'Whitening facial',p:2500},{n:'Glow facial',p:3125},{n:'O3+ special facial',p:3750},{n:'Facial – Mood Special',p:6250}]},
   {cat:'skin',group:'Cleanup, detan & bleach',tag:'Skin care',items:[{n:'Cleanup – Jovees',p:700},{n:'Cleanup – Richfeel',p:1000},{n:'Cleanup – O3+',p:1500},{n:'Detan – Raaga',p:500},{n:'Detan – O3+',p:600},{n:'Bleach',p:800}]},
-  {cat:'other',group:'Face threading',tag:'Threading',items:[{n:'Eyebrow',p:70},{n:'Forehead',p:70},{n:'Sidelocks',p:100},{n:'Upper lip',p:50},{n:'Lower lip',p:50},{n:'Chin',p:50},{n:'Full face',p:350},{n:'Eyebrow + upper lip + lower lip + chin',p:190}]},
-  {cat:'other',group:'Hair wash & blowdry',tag:'Women',note:'* Prices for shoulder-length hair',items:[{n:'Hair wash & blast dry',p:500},{n:'Hair wash & blowdry',p:800},{n:'Blowdry only',p:500}]},
-  {cat:'other',group:'Styling',tag:'Women',items:[{n:'Straightening',p:1500},{n:'Curling',p:1500}]},
-  {cat:'other',group:'Hair cut',tag:'Women',items:[{n:'Hair trim',p:500},{n:'Layer cut',p:700},{n:'Butterfly haircut',p:1200},{n:'Only bangs',p:500}]},
+  {cat:'colour',group:'Root touch-up',tag:'Hair colour',note:'✨ New service · 1 inch root to hair',items:[{n:'Root touch-up (1 inch root to hair)',p:1500}]},
+  {cat:'thread',group:'Face threading',tag:'Threading',items:[{n:'Eyebrow',p:70},{n:'Forehead',p:70},{n:'Sidelocks',p:100},{n:'Upper lip',p:50},{n:'Lower lip',p:50},{n:'Chin',p:50},{n:'Full face',p:350},{n:'Eyebrow + upper lip + lower lip + chin',p:190}]},
+  {cat:'hairwash',group:'Hair wash & blowdry',tag:'Women',note:'* Prices for shoulder-length hair · Anniversary discount not applicable on this category',items:[{n:'Hair wash & blast dry',p:500},{n:'Hair wash & blowdry',p:800},{n:'Blowdry only',p:500}]},
+  {cat:'styling',group:'Styling',tag:'Women',items:[{n:'Straightening',p:1500},{n:'Curling',p:1500}]},
+  {cat:'haircut',group:'Hair cut',tag:'Women',note:'* Butterfly haircut (₹1200) qualifies for anniversary discount',items:[{n:'Hair trim',p:500},{n:'Layer cut',p:700},{n:'Butterfly haircut',p:1200},{n:'Only bangs',p:500}]},
   {cat:'wax',group:'Waxing – Rica / chocolate wax',tag:'Women',items:[{n:'Full arm / half leg',p:500},{n:'Full leg',p:700},{n:'Under arm',p:200},{n:'Full arm + full leg + underarm',p:1300},{n:'Full body',p:2500},{n:'Bikini wax',p:2000},{n:'Upper lip / lower lip / chin / forehead / ear / nose',p:100},{n:'Full face waxing',p:500},{n:'Sidelocks waxing',p:200}]},
 ];
 
@@ -508,11 +539,9 @@ SVCS.forEach(s=>lenSel[s.id]=0);
 // ── HELPERS ──
 function inr(p){return '₹'+Math.round(p).toLocaleString('en-IN')}
 function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
-// Waxing and threading excluded UNLESS individual service price > ₹1000
-const EXCL=['wax','other'];
+// Discount applies on any service individually priced ₹999 & above
 function isDiscountable(cat,price){
-  if(!EXCL.includes(cat))return true;
-  return price>=1000;
+  return price>=999;
 }
 function discTotal(){
   const tot=cartTotal();
@@ -567,9 +596,10 @@ function flatGrpHTML(g,q){
       <div class="svc-right">${priceHTML(i.p,g.cat)}${addBtnHTML(uid,i.n,i.p,'',g.cat)}</div>
     </div>`;
   }).join('');
-  const note=g.note?`<div class="note-bar">${g.note}</div>`:'';
-  const noDisc=!isDiscountable(g.cat)?`<div class="no-disc-note">🚫 Anniversary discount not applicable on this category.</div>`:'';
-  return `<div class="svc-grp"><div class="svc-grp-hdr"><span class="svc-grp-title">${g.group}</span><span class="svc-grp-tag">${g.tag}</span></div>${noDisc}${note}${rows}</div>`;
+  const note=g.note&&!g.note.startsWith('✨')?`<div class="note-bar">${g.note}</div>`:'';
+  const noDisc='';
+  const newBadge=g.note&&g.note.startsWith('✨')?`<span class="new-badge">✨ New</span>`:'';
+  return `<div class="svc-grp"><div class="svc-grp-hdr"><span class="svc-grp-title">${g.group}${newBadge}</span><span class="svc-grp-tag">${g.tag}</span></div>${noDisc}${note}${rows}</div>`;
 }
 
 function render(){
@@ -591,9 +621,8 @@ function render(){
   if(cat==='all'||showLen.includes(cat)){
     (cat==='all'?SVCS:SVCS.filter(s=>s.cat===cat)).forEach(s=>html+=lenSvcHTML(s));
   }
-  if(cat==='all'||!showLen.includes(cat)){
-    (cat==='all'?FLAT:FLAT.filter(g=>g.cat===cat)).forEach(g=>html+=flatGrpHTML(g,''));
-  }
+  // Always show FLAT items for the active cat (handles flat services in showLen cats like root touch-up under colour)
+  (cat==='all'?FLAT:FLAT.filter(g=>g.cat===cat)).forEach(g=>html+=flatGrpHTML(g,''));
   el.innerHTML=html||'<div class="no-results">No services in this category.</div>';
 }
 
@@ -644,6 +673,13 @@ document.getElementById('cat-list').addEventListener('click',function(e){
   document.querySelectorAll('.cat').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
   render();
+  // Scroll so the services section is visible below the sticky header
+  const svcEl=document.getElementById('services');
+  const stickyEl=document.querySelector('.sticky-hdr');
+  if(svcEl&&stickyEl){
+    const top=svcEl.getBoundingClientRect().top+window.pageYOffset-stickyEl.offsetHeight-8;
+    window.scrollTo({top,behavior:'smooth'});
+  }
 });
 
 function doSearch(v){
