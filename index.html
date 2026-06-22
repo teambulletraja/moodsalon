@@ -308,7 +308,7 @@ a{color:inherit;text-decoration:none}
 <!-- URGENCY BAR -->
 <div class="urgency-bar" id="urgency-bar">
   <span><span class="udot"></span><span id="urgency-text">Loading today's availability…</span></span>
-  <span style="opacity:.65" id="urgency-hours">Tue–Sun · 10AM–8PM</span>
+  <span style="opacity:.65" id="urgency-hours">Tue–Sun · 11AM–8PM</span>
 </div>
 
 <!-- DEAL STRIP — owner managed -->
@@ -359,7 +359,7 @@ a{color:inherit;text-decoration:none}
 
 <!-- TRUST -->
 <div class="trust">
-  <div class="ti"><div class="tn">200+</div><div class="tl">Happy clients</div></div>
+  <div class="ti"><div class="tn">2000+</div><div class="tl">Happy clients</div></div>
   <div class="tsep"></div>
   <div class="ti"><div class="tn">4.9★</div><div class="tl">Google rating</div></div>
   <div class="tsep"></div>
@@ -371,7 +371,7 @@ a{color:inherit;text-decoration:none}
 <!-- HOURS -->
 <div class="hours-bar">
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4A373" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-  <span><span class="hopen">Open Tue–Sun · 10 AM – 8 PM</span> &nbsp;·&nbsp; <span class="hclosed">Closed Mondays</span></span>
+  <span><span class="hopen">Open Tue–Sun · 11 AM – 8 PM</span> &nbsp;·&nbsp; <span class="hclosed">Closed Mondays</span></span>
 </div>
 
 <!-- STICKY SEARCH + CART -->
@@ -749,19 +749,19 @@ const lenSel={};
 SVCS.forEach(s=>lenSel[s.id]=0);
 
 // ══════════════ SALON HOURS / OPEN-CLOSED LOGIC ══════════════
-// Closed Mondays. Open Tue–Sun 10:00–20:00.
+// Closed Mondays. Open Tue–Sun 11:00–20:00.
 function isClosedDay(date){ return date.getDay()===1; } // Monday = 1
 
 function updateUrgencyBar(){
   const now=new Date();
   const day=now.getDay();
   const hour=now.getHours();
-  const isOpenNow = !isClosedDay(now) && hour>=10 && hour<20;
+  const isOpenNow = !isClosedDay(now) && hour>=11 && hour<20;
   const txt=document.getElementById('urgency-text');
   if(isClosedDay(now)){
     txt.textContent="We're closed today (Monday) — book for tomorrow";
-  }else if(!isOpenNow && hour<10){
-    txt.textContent="Opens today at 10 AM — reserve your slot now";
+  }else if(!isOpenNow && hour<11){
+    txt.textContent="Opens today at 11 AM — reserve your slot now";
   }else if(!isOpenNow && hour>=20){
     txt.textContent="Closed for today — book your next visit";
   }else{
@@ -1056,7 +1056,7 @@ function closeCart(){document.getElementById('ov').classList.remove('show');docu
 function closeCartOpenBook(){closeCart();setTimeout(openBook,320);}
 function closeAll(){closeCart();closeBook();closeAdminLogin();closeAdmin();}
 
-// ══════════════ BOOKING — Monday closed, Tue–Sun 10AM–8PM ══════════════
+// ══════════════ BOOKING — Monday closed, Tue–Sun 11AM–8PM ══════════════
 function buildDates(){
   const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1076,8 +1076,8 @@ function buildDates(){
 }
 function pickDate(k,el){selDate=k;document.querySelectorAll('.dt').forEach(x=>x.classList.remove('on'));el.classList.add('on');}
 function buildTimes(){
-  // Salon hours 10:00 AM – 8:00 PM, last slot 7:30 PM
-  const slots=['10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM'];
+  // Salon hours 11:00 AM – 8:00 PM, last slot 7:30 PM
+  const slots=['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM'];
   document.getElementById('tgrid').innerHTML=slots.map(t=>`<div class="tt${selTime===t?' on':''}" onclick="pickTime('${t}',this)">${t}</div>`).join('');
 }
 function pickTime(t,el){selTime=t;document.querySelectorAll('.tt').forEach(x=>x.classList.remove('on'));el.classList.add('on');}
