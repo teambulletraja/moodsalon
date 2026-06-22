@@ -1296,7 +1296,7 @@ function saveCombo(){
   if(!name){ alert('Please enter a package name.'); return; }
   if(!price || price<=0){ alert('Please enter a valid cost.'); return; }
   const was=parseFloat(document.getElementById('ce-was').value)||null;
-  if(was && was<=price){ alert('Original price should be higher than the cost, otherwise there\\'s no savings to show. Leave it blank if there\\'s no discount.'); return; }
+  if(was && was<=price){ alert("Original price should be higher than the cost, otherwise there's no savings to show. Leave it blank if there's no discount."); return; }
 
   const list=loadCombos();
   const data={
