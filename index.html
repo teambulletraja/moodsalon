@@ -29,12 +29,6 @@ a{color:inherit;text-decoration:none}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
 
 /* ── DEAL STRIP (owner-managed) ── */
-.deal-strip{background:linear-gradient(90deg,var(--blue),#2A5F87,var(--blue));color:#fff;padding:10px 16px;display:none;align-items:center;gap:10px;position:relative;overflow:hidden}
-.deal-strip.show{display:flex}
-.deal-strip-badge{background:rgba(255,255,255,.18);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:99px;flex-shrink:0}
-.deal-strip-text{flex:1;font-size:12px;font-weight:500;min-width:0}
-.deal-strip-text strong{font-weight:700}
-.deal-strip-cta{background:#fff;color:var(--blue);font-size:11px;font-weight:700;padding:6px 12px;border-radius:99px;border:none;cursor:pointer;flex-shrink:0;white-space:nowrap}
 
 /* ── HERO ── */
 .hero{background:var(--dark);color:#fff;position:relative;overflow:hidden}
@@ -301,6 +295,20 @@ a{color:inherit;text-decoration:none}
 .admin-save-msg{font-size:12px;color:var(--green);background:rgba(30,107,69,.1);border-radius:8px;padding:9px 12px;margin-top:10px;display:none;text-align:center}
 .admin-save-msg.show{display:block}
 .admin-login-link{display:block;text-align:center;font-size:11px;color:var(--gold-dk);text-decoration:underline;padding:14px 0 0}
+.combo-admin-row{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--border);border-radius:var(--rs);padding:12px;margin-bottom:9px}
+.combo-admin-row.off{opacity:.5}
+.car-emoji{font-size:22px;width:34px;text-align:center;flex-shrink:0}
+.car-info{flex:1;min-width:0}
+.car-name{font-size:13px;font-weight:600;color:var(--dark);line-height:1.3}
+.car-price{font-size:11.5px;color:var(--gold-dk);margin-top:2px}
+.car-price s{color:var(--muted);margin-left:5px}
+.car-status{font-size:9.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:99px;flex-shrink:0}
+.car-status.live{background:rgba(30,107,69,.12);color:var(--green)}
+.car-status.hidden-tag{background:rgba(139,126,106,.15);color:var(--muted)}
+.car-edit{background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:6px 11px;font-size:11.5px;color:var(--dark);cursor:pointer;flex-shrink:0;font-weight:500}
+.combo-admin-empty{text-align:center;padding:30px 10px;color:var(--muted);font-size:12.5px;line-height:1.6}
+.combo-preview-card{background:#fff;border:1px solid var(--border);border-radius:10px;padding:13px;position:relative;overflow:hidden;width:100%}
+.combo-preview-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue)}
 </style>
 </head>
 <body>
@@ -309,13 +317,6 @@ a{color:inherit;text-decoration:none}
 <div class="urgency-bar" id="urgency-bar">
   <span><span class="udot"></span><span id="urgency-text">Loading today's availability…</span></span>
   <span style="opacity:.65" id="urgency-hours">Tue–Sun · 11AM–8PM</span>
-</div>
-
-<!-- DEAL STRIP — owner managed -->
-<div class="deal-strip" id="deal-strip">
-  <span class="deal-strip-badge" id="deal-badge">Deal</span>
-  <span class="deal-strip-text" id="deal-text"></span>
-  <button class="deal-strip-cta" onclick="scrollToServices()">View</button>
 </div>
 
 <!-- HERO -->
@@ -416,11 +417,11 @@ a{color:inherit;text-decoration:none}
   <div class="slots-row" id="slots-row"></div>
 </div>
 
-<!-- MONSOON COMBOS -->
-<div class="monsoon-wrap">
+<!-- DEALS & COMBOS — owner managed -->
+<div class="monsoon-wrap" id="monsoon-wrap">
   <div class="sec-lbl" style="margin-bottom:9px">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1E4A6B" stroke-width="2"><path d="M20 16.2A4.5 4.5 0 0 0 17.5 8h-1.8A7 7 0 1 0 4 14.9"/><path d="M8 19v2M12 19v2M16 19v2"/></svg>
-    Monsoon care specials
+    Deals &amp; combos
     <span class="monsoon-badge">Limited time</span>
   </div>
   <div class="combo-scroll" id="combo-scroll"></div>
@@ -652,54 +653,79 @@ a{color:inherit;text-decoration:none}
     </div>
     <div id="admin-pin-error" style="display:none;font-size:12px;color:var(--red);margin-top:-8px;margin-bottom:12px">Incorrect PIN. Please try again.</div>
     <button class="btn btn-gold btn-full" onclick="checkAdminPin()">Unlock deal manager</button>
-    <p style="font-size:10.5px;color:var(--muted);text-align:center;margin-top:14px">Demo PIN for preview: <strong>1234</strong></p>
   </div>
 </div>
 
-<!-- OWNER ADMIN DRAWER -->
+<!-- OWNER ADMIN DRAWER — COMBO LIST -->
 <div class="drawer" id="admin-drawer" style="z-index:600">
   <div class="d-hdr">
-    <h3>Deal of the Day / Week</h3>
+    <h3>Deals &amp; Combos</h3>
     <button class="close-btn" onclick="closeAdmin()">✕</button>
   </div>
   <div class="bd-body">
-    <div class="admin-section">
+    <div class="admin-section" style="padding-top:4px">
+      <button class="btn btn-gold btn-full" onclick="openComboEditor(null)">+ Add new combo</button>
+      <label class="admin-label" style="margin-top:20px">Your combos</label>
+      <div id="combo-admin-list"></div>
+    </div>
+  </div>
+</div>
+
+<!-- OWNER ADMIN DRAWER — SINGLE COMBO EDITOR -->
+<div class="drawer" id="combo-editor-drawer" style="z-index:700">
+  <div class="d-hdr">
+    <h3 id="combo-editor-title">Add a combo</h3>
+    <button class="close-btn" onclick="closeComboEditor()">✕</button>
+  </div>
+  <div class="bd-body">
+    <div class="admin-section" style="padding-top:4px">
+
       <div class="admin-toggle-row">
         <div>
-          <div class="admin-toggle-label">Show deal banner</div>
-          <div class="admin-toggle-sub">Turns the blue strip on or off for every visitor</div>
+          <div class="admin-toggle-label">Show this combo</div>
+          <div class="admin-toggle-sub">Turn off to hide without deleting</div>
         </div>
         <label class="switch">
-          <input type="checkbox" id="deal-enabled" onchange="adminPreview()">
+          <input type="checkbox" id="ce-enabled" checked onchange="comboPreview()">
           <span class="switch-slider"></span>
         </label>
       </div>
 
-      <label class="admin-label">Deal type</label>
-      <div class="admin-type-row">
-        <button class="admin-type-btn on" id="type-day" onclick="setDealType('day')">Deal of the Day</button>
-        <button class="admin-type-btn" id="type-week" onclick="setDealType('week')">Deal of the Week</button>
+      <label class="admin-label">Emoji (optional)</label>
+      <div class="form-group">
+        <input class="form-input" id="ce-emoji" placeholder="e.g. 🌧️ ✨ 💅 🌿" maxlength="4" oninput="comboPreview()">
       </div>
 
-      <label class="admin-label">Headline (e.g. service or combo name)</label>
+      <label class="admin-label">Package name</label>
       <div class="form-group">
-        <input class="form-input" id="deal-title" placeholder="e.g. Gold Facial" oninput="adminPreview()">
+        <input class="form-input" id="ce-name" placeholder="e.g. Monsoon Rescue Hair" oninput="comboPreview()">
       </div>
 
-      <label class="admin-label">Offer detail</label>
+      <label class="admin-label">Details (what's included)</label>
       <div class="form-group">
-        <input class="form-input" id="deal-detail" placeholder="e.g. Flat ₹500 off, today only" oninput="adminPreview()">
+        <textarea class="form-input" id="ce-details" rows="2" placeholder="e.g. Argan Hair Spa (shoulder) + Hair Wash & Blowdry" style="resize:none" oninput="comboPreview()"></textarea>
       </div>
+
+      <div style="display:flex;gap:10px">
+        <div class="form-group" style="flex:1">
+          <label class="admin-label">Cost (₹)</label>
+          <input class="form-input" id="ce-price" type="number" inputmode="numeric" placeholder="1950" oninput="comboPreview()">
+        </div>
+        <div class="form-group" style="flex:1">
+          <label class="admin-label">Original price (₹)</label>
+          <input class="form-input" id="ce-was" type="number" inputmode="numeric" placeholder="2300" oninput="comboPreview()">
+        </div>
+      </div>
+      <p style="font-size:10.5px;color:var(--muted);margin:-8px 0 16px">Leave "Original price" blank if there's no savings to show.</p>
 
       <label class="admin-label">Preview</label>
-      <div class="admin-preview">
-        <div class="admin-preview-label" id="preview-badge-label">Deal of the Day</div>
-        <div class="admin-preview-text" id="preview-text">Your banner text will appear here</div>
+      <div class="combo-scroll" style="padding:0">
+        <div id="combo-editor-preview"></div>
       </div>
 
-      <button class="btn btn-gold btn-full" style="margin-top:18px" onclick="saveDeal()">Save &amp; publish to homepage</button>
-      <button class="btn btn-dark btn-full" style="margin-top:10px;background:var(--bg);color:var(--dark);border:1px solid var(--border)" onclick="clearDeal()">Remove current deal</button>
-      <div class="admin-save-msg" id="admin-save-msg">✓ Deal published — visible to all visitors now</div>
+      <button class="btn btn-gold btn-full" style="margin-top:18px" onclick="saveCombo()">Save combo</button>
+      <button class="btn btn-dark btn-full hidden" id="ce-delete-btn" style="margin-top:10px;background:var(--bg);color:var(--red);border:1px solid var(--border)" onclick="deleteComboConfirm()">Delete this combo</button>
+      <div class="admin-save-msg" id="combo-save-msg">✓ Combo saved — visible to all visitors now</div>
     </div>
   </div>
 </div>
@@ -735,13 +761,29 @@ const FLAT=[
   {cat:'wax',group:'Waxing – Rica / chocolate wax',tag:'Women',items:[{n:'Full arm / half leg',p:500},{n:'Full leg',p:700},{n:'Under arm',p:200},{n:'Full arm + full leg + underarm',p:1300},{n:'Full body',p:2500},{n:'Bikini wax',p:2000},{n:'Upper lip / lower lip / chin / forehead / ear / nose',p:100},{n:'Full face waxing',p:500},{n:'Sidelocks waxing',p:200}]},
 ];
 
-// Monsoon combos — fixed bundle price, flagged as their own cart line
-const COMBOS=[
-  {id:'c1',icon:'🌧️',name:'Monsoon Rescue Hair',desc:'Argan Hair Spa (shoulder) + Hair Wash &amp; Blowdry',price:1950,was:2300},
-  {id:'c2',icon:'✨',name:'Rain &amp; Glow Skin',desc:'O3+ Cleanup + Detan (O3+) + Eyebrow threading',price:1999,was:2170},
-  {id:'c3',icon:'💅',name:'Pamper Me Combo',desc:'Berry Mani + Pedi + Fruit Punch Facial',price:3299,was:3675},
-  {id:'c4',icon:'🌿',name:'Scalp &amp; Shine',desc:'Scalp Treatment Sense (shoulder) + Blowdry',price:2199,was:2525},
-];
+// Deals & Combos — owner-managed via the admin panel.
+// Seeded with the current monsoon combos so nothing disappears on first load;
+// the owner can edit, hide, delete, or add new ones from the admin screen.
+const COMBO_KEY='mood_salon_combos_v1';
+function defaultCombos(){
+  return [
+    {id:'c1',emoji:'🌧️',name:'Monsoon Rescue Hair',details:'Argan Hair Spa (shoulder) + Hair Wash & Blowdry',price:1950,was:2300,enabled:true},
+    {id:'c2',emoji:'✨',name:'Rain & Glow Skin',details:'O3+ Cleanup + Detan (O3+) + Eyebrow threading',price:1999,was:2170,enabled:true},
+    {id:'c3',emoji:'💅',name:'Pamper Me Combo',details:'Berry Mani + Pedi + Fruit Punch Facial',price:3299,was:3675,enabled:true},
+    {id:'c4',emoji:'🌿',name:'Scalp & Shine',details:'Scalp Treatment Sense (shoulder) + Blowdry',price:2199,was:2525,enabled:true},
+  ];
+}
+function loadCombos(){
+  try{
+    const raw=localStorage.getItem(COMBO_KEY);
+    return raw?JSON.parse(raw):defaultCombos();
+  }catch(e){ return defaultCombos(); }
+}
+function saveCombosToStorage(list){
+  try{ localStorage.setItem(COMBO_KEY,JSON.stringify(list)); }catch(e){}
+}
+function getCombos(){ return loadCombos().filter(c=>c.enabled); }
+
 
 // ══════════════ STATE ══════════════
 let disc=0, activeCat='all', srchQ='', cart=[], selDate='', selTime='';
@@ -876,22 +918,31 @@ function render(){
   el.innerHTML=html||'<div class="no-results">No services in this category.</div>';
 }
 
-// ══════════════ MONSOON COMBOS RENDER ══════════════
+// ══════════════ DEALS & COMBOS — RENDER (owner-managed) ══════════════
 function renderCombos(){
   const el=document.getElementById('combo-scroll');
-  el.innerHTML=COMBOS.map(c=>{
+  const wrap=document.getElementById('monsoon-wrap');
+  const combos=getCombos();
+  if(!combos.length){
+    if(wrap)wrap.classList.add('hidden');
+    el.innerHTML='';
+    return;
+  }
+  if(wrap)wrap.classList.remove('hidden');
+  el.innerHTML=combos.map(c=>{
     const uid=`combo_${c.id}`;
     const inC=cart.some(x=>x.uid===uid);
-    const save=c.was-c.price;
+    const hasSavings = c.was && Number(c.was) > Number(c.price);
+    const save = hasSavings ? (c.was-c.price) : 0;
     return `<div class="combo-card">
-      <div class="combo-icn">${c.icon}</div>
+      ${c.emoji?`<div class="combo-icn">${c.emoji}</div>`:''}
       <div class="combo-name">${c.name}</div>
-      <div class="combo-svcs">${c.desc}</div>
+      <div class="combo-svcs">${c.details||''}</div>
       <div class="combo-price-row">
         <div class="combo-price">${inr(c.price)}</div>
-        <div class="combo-save">Save ${inr(save)}</div>
+        ${hasSavings?`<div class="combo-save">Save ${inr(save)}</div>`:''}
       </div>
-      <button class="combo-btn${inC?' added':''}" onclick="toggleCart('${uid}','${esc(c.name)}',${c.price},'Monsoon combo','combo')">${inC?'✓ Added':'Add combo'}</button>
+      <button class="combo-btn${inC?' added':''}" onclick="toggleCart('${uid}','${esc(c.name)}',${c.price},'Deal/combo','combo')">${inC?'✓ Added':'Add combo'}</button>
     </div>`;
   }).join('');
 }
@@ -1132,37 +1183,9 @@ function submitBook(){
   setTimeout(()=>window.open(`https://wa.me/918850268699?text=${msg}`,'_blank'),400);
 }
 
-// ══════════════ OWNER ADMIN — DEAL OF THE DAY / WEEK ══════════════
-const ADMIN_PIN='1234'; // demo PIN — replace with real owner PIN at launch
-const DEAL_KEY='mood_salon_deal_v1';
-let dealType='day';
-
-function defaultDeal(){
-  return {enabled:false, type:'day', title:'', detail:''};
-}
-function loadDeal(){
-  try{
-    const raw=localStorage.getItem(DEAL_KEY);
-    return raw?JSON.parse(raw):defaultDeal();
-  }catch(e){ return defaultDeal(); }
-}
-function saveDealToStorage(deal){
-  try{ localStorage.setItem(DEAL_KEY,JSON.stringify(deal)); }catch(e){}
-}
-
-function renderDealStrip(){
-  const deal=loadDeal();
-  const strip=document.getElementById('deal-strip');
-  const badge=document.getElementById('deal-badge');
-  const text=document.getElementById('deal-text');
-  if(deal.enabled && deal.title){
-    strip.classList.add('show');
-    badge.textContent = deal.type==='week' ? 'Deal of the week' : 'Deal of the day';
-    text.innerHTML = `<strong>${deal.title}</strong>${deal.detail?' — '+deal.detail:''}`;
-  }else{
-    strip.classList.remove('show');
-  }
-}
+// ══════════════ OWNER ADMIN — DEALS & COMBOS MANAGER ══════════════
+const ADMIN_PIN='2323'; // owner PIN
+let editingComboId=null; // null = adding new, otherwise the id being edited
 
 function openAdminLogin(){
   document.getElementById('admin-pin').value='';
@@ -1184,23 +1207,9 @@ function checkAdminPin(){
   }
 }
 
-function setDealType(t){
-  dealType=t;
-  document.getElementById('type-day').classList.toggle('on',t==='day');
-  document.getElementById('type-week').classList.toggle('on',t==='week');
-  adminPreview();
-}
-
+// ---- Combo list screen ----
 function openAdmin(){
-  const deal=loadDeal();
-  dealType=deal.type||'day';
-  document.getElementById('deal-enabled').checked=!!deal.enabled;
-  document.getElementById('deal-title').value=deal.title||'';
-  document.getElementById('deal-detail').value=deal.detail||'';
-  document.getElementById('type-day').classList.toggle('on',dealType==='day');
-  document.getElementById('type-week').classList.toggle('on',dealType==='week');
-  document.getElementById('admin-save-msg').classList.remove('show');
-  adminPreview();
+  renderAdminList();
   document.getElementById('ov').classList.add('show');
   document.getElementById('admin-drawer').classList.add('show');
 }
@@ -1208,38 +1217,121 @@ function closeAdmin(){
   document.getElementById('ov').classList.remove('show');
   document.getElementById('admin-drawer').classList.remove('show');
 }
-function adminPreview(){
-  const title=document.getElementById('deal-title').value.trim();
-  const detail=document.getElementById('deal-detail').value.trim();
-  const enabled=document.getElementById('deal-enabled').checked;
-  document.getElementById('preview-badge-label').textContent = dealType==='week' ? 'Deal of the Week' : 'Deal of the Day';
-  if(!enabled){
-    document.getElementById('preview-text').textContent='Banner is OFF — nothing shows on the homepage';
-  }else if(!title){
-    document.getElementById('preview-text').textContent='Add a headline to see your banner preview';
-  }else{
-    document.getElementById('preview-text').innerHTML=`<strong>${title}</strong>${detail?' — '+detail:''}`;
+function renderAdminList(){
+  const list=loadCombos();
+  const el=document.getElementById('combo-admin-list');
+  if(!list.length){
+    el.innerHTML='<div class="combo-admin-empty">No combos yet.<br>Tap "+ Add new combo" to create your first one.</div>';
+    return;
   }
+  el.innerHTML=list.map(c=>{
+    const hasSavings=c.was && Number(c.was)>Number(c.price);
+    return `<div class="combo-admin-row${c.enabled?'':' off'}">
+      <div class="car-emoji">${c.emoji||'🏷️'}</div>
+      <div class="car-info">
+        <div class="car-name">${c.name||'(untitled)'}</div>
+        <div class="car-price">${inr(c.price||0)}${hasSavings?` <s>${inr(c.was)}</s>`:''}</div>
+      </div>
+      <span class="car-status ${c.enabled?'live':'hidden-tag'}">${c.enabled?'Live':'Hidden'}</span>
+      <button class="car-edit" onclick="openComboEditor('${c.id}')">Edit</button>
+    </div>`;
+  }).join('');
 }
-function saveDeal(){
-  const deal={
-    enabled:document.getElementById('deal-enabled').checked,
-    type:dealType,
-    title:document.getElementById('deal-title').value.trim(),
-    detail:document.getElementById('deal-detail').value.trim()
+
+// ---- Single combo editor screen ----
+function openComboEditor(id){
+  editingComboId=id;
+  const title=document.getElementById('combo-editor-title');
+  const delBtn=document.getElementById('ce-delete-btn');
+  if(id){
+    const c=loadCombos().find(x=>x.id===id);
+    title.textContent='Edit combo';
+    document.getElementById('ce-enabled').checked=!!c.enabled;
+    document.getElementById('ce-emoji').value=c.emoji||'';
+    document.getElementById('ce-name').value=c.name||'';
+    document.getElementById('ce-details').value=c.details||'';
+    document.getElementById('ce-price').value=c.price||'';
+    document.getElementById('ce-was').value=c.was||'';
+    delBtn.classList.remove('hidden');
+  }else{
+    title.textContent='Add a combo';
+    document.getElementById('ce-enabled').checked=true;
+    document.getElementById('ce-emoji').value='';
+    document.getElementById('ce-name').value='';
+    document.getElementById('ce-details').value='';
+    document.getElementById('ce-price').value='';
+    document.getElementById('ce-was').value='';
+    delBtn.classList.add('hidden');
+  }
+  document.getElementById('combo-save-msg').classList.remove('show');
+  comboPreview();
+  document.getElementById('ov').classList.add('show');
+  document.getElementById('combo-editor-drawer').classList.add('show');
+}
+function closeComboEditor(){
+  document.getElementById('ov').classList.remove('show');
+  document.getElementById('combo-editor-drawer').classList.remove('show');
+}
+function comboPreview(){
+  const emoji=document.getElementById('ce-emoji').value.trim();
+  const name=document.getElementById('ce-name').value.trim()||'Your combo name';
+  const details=document.getElementById('ce-details').value.trim();
+  const price=parseFloat(document.getElementById('ce-price').value)||0;
+  const was=parseFloat(document.getElementById('ce-was').value)||0;
+  const hasSavings=was>price;
+  document.getElementById('combo-editor-preview').innerHTML=`
+    <div class="combo-preview-card">
+      ${emoji?`<div class="combo-icn">${emoji}</div>`:''}
+      <div class="combo-name">${name}</div>
+      <div class="combo-svcs">${details}</div>
+      <div class="combo-price-row">
+        <div class="combo-price">${inr(price)}</div>
+        ${hasSavings?`<div class="combo-save">Save ${inr(was-price)}</div>`:''}
+      </div>
+    </div>`;
+}
+function saveCombo(){
+  const name=document.getElementById('ce-name').value.trim();
+  const price=parseFloat(document.getElementById('ce-price').value);
+  if(!name){ alert('Please enter a package name.'); return; }
+  if(!price || price<=0){ alert('Please enter a valid cost.'); return; }
+  const was=parseFloat(document.getElementById('ce-was').value)||null;
+  if(was && was<=price){ alert('Original price should be higher than the cost, otherwise there\\'s no savings to show. Leave it blank if there\\'s no discount.'); return; }
+
+  const list=loadCombos();
+  const data={
+    emoji:document.getElementById('ce-emoji').value.trim(),
+    name,
+    details:document.getElementById('ce-details').value.trim(),
+    price,
+    was,
+    enabled:document.getElementById('ce-enabled').checked
   };
-  saveDealToStorage(deal);
-  renderDealStrip();
-  const msg=document.getElementById('admin-save-msg');
+  if(editingComboId){
+    const idx=list.findIndex(x=>x.id===editingComboId);
+    if(idx>-1) list[idx]={...list[idx],...data};
+  }else{
+    data.id='combo_'+Date.now();
+    list.push(data);
+  }
+  saveCombosToStorage(list);
+  renderCombos(); render();
+  const msg=document.getElementById('combo-save-msg');
   msg.classList.add('show');
-  setTimeout(()=>msg.classList.remove('show'),3000);
+  setTimeout(()=>{
+    msg.classList.remove('show');
+    closeComboEditor();
+    renderAdminList();
+  },700);
 }
-function clearDeal(){
-  document.getElementById('deal-enabled').checked=false;
-  document.getElementById('deal-title').value='';
-  document.getElementById('deal-detail').value='';
-  adminPreview();
-  saveDeal();
+function deleteComboConfirm(){
+  if(!editingComboId)return;
+  if(!confirm('Delete this combo? This cannot be undone.'))return;
+  const list=loadCombos().filter(c=>c.id!==editingComboId);
+  saveCombosToStorage(list);
+  renderCombos(); render();
+  closeComboEditor();
+  renderAdminList();
 }
 
 // ══════════════ INIT ══════════════
@@ -1252,7 +1344,6 @@ function ownerPhotoSrc(){
 updateUrgencyBar();
 buildSlotsRow();
 renderCombos();
-renderDealStrip();
 render();
 </script>
 </body>
