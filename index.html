@@ -443,6 +443,7 @@ a{color:inherit;text-decoration:none}
       <button class="cat" data-cat="nails">💅 Nails</button>
       <button class="cat" data-cat="wax">🪶 Waxing</button>
       <button class="cat" data-cat="thread">🧵 Threading</button>
+      <button class="cat" data-cat="body">🧴 Body &amp; massage</button>
     </div>
   </div>
 </div>
@@ -558,8 +559,8 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="tnc-footer">
-  <strong style="color:var(--dark)">T&amp;C Apply</strong> · Member discounts apply on services individually priced ₹999 &amp; above.<br>
-  Bundling lower-priced services does not make them eligible. Gold 10% &amp; Platinum 20% for active members only.
+  <strong style="color:var(--dark)">T&amp;C Apply</strong> · Gold 10% &amp; Platinum 20% member discounts apply on <strong style="color:var(--dark)">all services</strong> — except threading &amp; combo deals.<br>
+  For active members only. Prices subject to change without prior notice.
 </div>
 
 <a class="owner-admin-link" href="#" onclick="openAdminLogin();return false;">Salon owner? Manage deals →</a>
@@ -593,7 +594,7 @@ a{color:inherit;text-decoration:none}
   <div class="d-footer">
     <div class="cart-disc-toggle" id="cdt">
       <div class="cdt-title">Member discount</div>
-      <div class="cdt-sub">Min. cart: <span class="min-amt">₹999</span> · Services priced ₹999 &amp; above get the offer</div>
+      <div class="cdt-sub">Applies to <strong style="color:var(--gold-dk)">all services</strong> · except threading &amp; combo deals</div>
       <div class="cdt-pills">
         <button class="cdt-pill on" data-d="0" onclick="setDiscFromCart(0,this)"><span class="cp-pct">–</span><span class="cp-lbl">No card</span></button>
         <button class="cdt-pill" data-d="10" id="cp10" onclick="setDiscFromCart(10,this)"><span class="cp-pct">10%</span><span class="cp-lbl">Gold</span></button>
@@ -607,7 +608,7 @@ a{color:inherit;text-decoration:none}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book these services
     </button>
-    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Discount on services priced ₹999 &amp; above individually.<br>Gold 10% &amp; Platinum 20% for active members.</div>
+    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Discount on all services except threading &amp; combos.<br>Gold 10% &amp; Platinum 20% for active members.</div>
   </div>
 </div>
 
@@ -731,7 +732,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-// ══════════════ DATA (unchanged from approved menu — exact prices preserved) ══════════════
+// ══════════════ DATA (matches printed Service Menu · discount rule revised Jul 2026: Gold 10% / Platinum 20% on ALL services except threading & combos) ══════════════
 const HL=['Upto neck','Shoulder','Below shoulder','Waist','Below waist'];
 const HL7=['Only fringe','Crown','Upto neck','Shoulder','Below shoulder','Waist','Below waist'];
 const SL=['Shoulder','Below shoulder','Waist','Below waist'];
@@ -747,18 +748,24 @@ const SVCS=[
   {id:'sp3',cat:'spa',title:'Cadiveu hair spa',tag:'Hair spa',lens:SL,prices:[1875,2125,2250,2375]},
   {id:'sp4',cat:'spa',title:'Biotop hair spa',tag:'Hair spa',lens:SL,prices:[2125,2250,2375,2500]},
   {id:'sp5',cat:'spa',title:'Scalp treatment – Sense',tag:'Treatment',lens:SL,prices:[1875,2125,2250,2375]},
+  {id:'sp6',cat:'spa',isNew:true,title:'Hyaluronic volume boost spa',tag:'Spa blend · Volume',lens:SL,prices:[1350,1600,1850,1975]},
+  {id:'sp7',cat:'spa',isNew:true,title:'Pink protein hydrating spa',tag:'Spa blend · Shine',lens:SL,prices:[1350,1600,1850,1975]},
+  {id:'sp8',cat:'spa',isNew:true,title:'Korean repair & restore spa',tag:'Spa blend · Repair',lens:SL,prices:[1450,1700,1950,2075]},
 ];
 const FLAT=[
   {cat:'nails',group:'Manicure',tag:'Nails',items:[{n:'Basic manicure',p:500},{n:'Berry manicure',p:800},{n:'Mint manicure',p:1500},{n:'Bubblegum manicure',p:1500},{n:'Coffee manicure',p:2000}]},
   {cat:'nails',group:'Pedicure',tag:'Nails',items:[{n:'Basic pedicure',p:500},{n:'Berry pedicure',p:800},{n:'Mint pedicure',p:1500},{n:'Bubblegum pedicure',p:1500},{n:'Coffee pedicure',p:2000}]},
   {cat:'facials',group:'Luxury facial menu',tag:'Facials',items:[{n:'Express facial',p:1250},{n:'Fruit punch facial',p:1875},{n:'Gold facial',p:2125},{n:'Whitening facial',p:2500},{n:'Glow facial',p:3125},{n:'O3+ special facial',p:3750},{n:'Facial – Mood Special',p:6250}]},
-  {cat:'skin',group:'Cleanup, detan & bleach',tag:'Skin care',items:[{n:'Cleanup – Jovees',p:700},{n:'Cleanup – Richfeel',p:1000},{n:'Cleanup – O3+',p:1500},{n:'Detan – Raaga',p:500},{n:'Detan – O3+',p:600},{n:'Bleach',p:800}]},
+  {cat:'skin',group:'Cleanup',tag:'Skin care',items:[{n:'Cleanup – Jovees',p:700},{n:'Cleanup – Richfeel',p:1000},{n:'Cleanup – O3+',p:1500}]},
   {cat:'colour',group:'Root touch-up',tag:'Hair colour',note:'✨ New service · 1 inch root to hair',items:[{n:'Root touch-up (1 inch root to hair)',p:1500}]},
   {cat:'thread',group:'Face threading',tag:'Threading',items:[{n:'Eyebrow',p:70},{n:'Forehead',p:70},{n:'Sidelocks',p:100},{n:'Upper lip',p:50},{n:'Lower lip',p:50},{n:'Chin',p:50},{n:'Full face',p:350},{n:'Eyebrow + upper lip + lower lip + chin',p:190}]},
-  {cat:'hairwash',group:'Hair wash & blowdry',tag:'Women',note:'* Prices for shoulder-length hair · Member discount not applicable on this category',items:[{n:'Hair wash & blast dry',p:500},{n:'Hair wash & blowdry',p:800},{n:'Blowdry only',p:500}]},
+  {cat:'hairwash',group:'Hair wash & blowdry',tag:'Women',note:'* Prices for shoulder-length hair',items:[{n:'Hair wash & blast dry',p:500},{n:'Hair wash & blowdry',p:800},{n:'Blowdry only',p:500}]},
   {cat:'styling',group:'Styling',tag:'Women',items:[{n:'Straightening',p:1500},{n:'Curling',p:1500}]},
-  {cat:'haircut',group:'Hair cut',tag:'Women',note:'* Butterfly haircut (₹1200) qualifies for member discount',items:[{n:'Hair trim',p:500},{n:'Layer cut',p:700},{n:'Butterfly haircut',p:1200},{n:'Only bangs',p:500}]},
+  {cat:'haircut',group:'Hair cut',tag:'Women',items:[{n:'Hair trim',p:500},{n:'Layer cut',p:700},{n:'Butterfly haircut',p:1200},{n:'Only bangs',p:500}]},
   {cat:'wax',group:'Waxing – Rica / chocolate wax',tag:'Women',items:[{n:'Full arm / half leg',p:500},{n:'Full leg',p:700},{n:'Under arm',p:200},{n:'Full arm + full leg + underarm',p:1300},{n:'Full body',p:2500},{n:'Bikini wax',p:2000},{n:'Upper lip / lower lip / chin / forehead / ear / nose',p:100},{n:'Full face waxing',p:500},{n:'Sidelocks waxing',p:200}]},
+  {cat:'body',group:'D-tan',tag:'Body care',note:'✨ New',items:[{n:'Face',p:500},{n:'Back',p:500},{n:'Stomach',p:500},{n:'Full arm',p:800},{n:'Full leg',p:800},{n:'Full body',p:2000}]},
+  {cat:'body',group:'Body polishing',tag:'Body care',note:'✨ New',items:[{n:'Full arm',p:1200},{n:'Full leg',p:1200},{n:'Full body',p:5000},{n:'Bikini',p:2500}]},
+  {cat:'body',group:'Massage',tag:'Body care',note:'✨ New',items:[{n:'Head massage',p:500},{n:'Foot massage',p:500},{n:'Full body massage',p:2500}]},
 ];
 
 // Deals & Combos — owner-managed via the admin panel.
@@ -767,10 +774,10 @@ const FLAT=[
 const COMBO_KEY='mood_salon_combos_v1';
 function defaultCombos(){
   return [
-    {id:'c1',emoji:'🌧️',name:'Monsoon Rescue Hair',details:'Argan Hair Spa (shoulder) + Hair Wash & Blowdry',price:1950,was:2300,enabled:true},
-    {id:'c2',emoji:'✨',name:'Rain & Glow Skin',details:'O3+ Cleanup + Detan (O3+) + Eyebrow threading',price:1999,was:2170,enabled:true},
-    {id:'c3',emoji:'💅',name:'Pamper Me Combo',details:'Berry Mani + Pedi + Fruit Punch Facial',price:3299,was:3675,enabled:true},
-    {id:'c4',emoji:'🌿',name:'Scalp & Shine',details:'Scalp Treatment Sense (shoulder) + Blowdry',price:2199,was:2525,enabled:true},
+    {id:'c1',emoji:'🌧️',name:'Monsoon Rescue Hair',details:'Argan Hair Spa (shoulder) + Hair Wash & Blowdry',price:1899,was:2050,enabled:true},
+    {id:'c2',emoji:'✨',name:'Rain & Glow Skin',details:'O3+ Cleanup + D-Tan Face + Eyebrow threading',price:1899,was:2070,enabled:true},
+    {id:'c3',emoji:'💅',name:'Pamper Me Combo',details:'Berry Mani + Pedi + Fruit Punch Facial',price:3199,was:3475,enabled:true},
+    {id:'c5',emoji:'🪞',name:'Korean Glass Hair',details:'Korean Repair & Restore Spa (shoulder) + Hair Wash & Blowdry',price:1999,was:2250,enabled:true},
   ];
 }
 function loadCombos(){
@@ -837,10 +844,10 @@ function buildSlotsRow(){
 // ══════════════ HELPERS ══════════════
 function inr(p){return '₹'+Math.round(p).toLocaleString('en-IN')}
 function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
-function isDiscountable(cat,price){return price>=999 && cat!=='combo'}
+function isDiscountable(cat,price){return cat!=='thread' && cat!=='combo'}
 function discTotal(){
   const tot=cartTotal();
-  if(disc===0||tot<999)return tot;
+  if(disc===0)return tot;
   return cart.reduce((a,c)=>{
     const p=isDiscountable(c.cat,c.price)?Math.round(c.price*(1-disc/100)):c.price;
     return a+p;
@@ -849,8 +856,7 @@ function discTotal(){
 
 // ══════════════ RENDER SERVICES ══════════════
 function priceHTML(p,cat){
-  const tot=cartTotal();
-  const discApplies=disc>0&&tot>=999&&isDiscountable(cat,p);
+  const discApplies=disc>0&&isDiscountable(cat,p);
   const shown=discApplies?Math.round(p*(1-disc/100)):p;
   let h=`<div class="svc-prices">`;
   if(discApplies)h+=`<div class="p-was">${inr(p)}</div>`;
@@ -871,7 +877,7 @@ function lenSvcHTML(s){
   const uid=`svc_${s.id}_${idx}`;
   const sub=s.lens[idx]+' hair';
   return `<div class="svc-grp">
-    <div class="svc-grp-hdr"><span class="svc-grp-title">${s.title}</span><span class="svc-grp-tag">${s.tag}</span></div>
+    <div class="svc-grp-hdr"><span class="svc-grp-title">${s.title}${s.isNew?' <span class="new-badge">✨ New</span>':''}</span><span class="svc-grp-tag">${s.tag}</span></div>
     <div class="len-bar">${lenBtns}</div>
     <div class="svc-row">
       <div class="svc-name">${sub}</div>
@@ -954,7 +960,6 @@ function updateSavingsNudge(){
   const nudge=document.getElementById('savings-nudge');
   const tot=cartTotal();
   if(disc===0||cart.length===0){ nudge.style.display='none'; return; }
-  if(tot<999){ nudge.style.display='none'; return; }
   const dtot=discTotal();
   const saved=tot-dtot;
   if(saved<=0){ nudge.style.display='none'; return; }
@@ -964,10 +969,6 @@ function updateSavingsNudge(){
 }
 
 function setDisc(d,btn){
-  if(d>0&&cartTotal()<999){
-    alert('Add services worth ₹999 or more to unlock this discount.');
-    return;
-  }
   disc=d;
   document.querySelectorAll('.dpill').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -978,11 +979,6 @@ function setDisc(d,btn){
   render(); renderCart(); renderCombos(); updateSavingsNudge();
 }
 function setDiscFromCart(d,btn){
-  const tot=cartTotal();
-  if(d>0&&tot<999){
-    alert('Add services worth ₹999 or more to unlock this discount.');
-    return;
-  }
   disc=d;
   document.querySelectorAll('.cdt-pill').forEach(b=>b.classList.remove('on'));
   btn.classList.add('on');
@@ -1031,11 +1027,6 @@ function toggleCart(uid,name,price,sub,cat){
   const idx=cart.findIndex(c=>c.uid===uid);
   if(idx>-1)cart.splice(idx,1);
   else cart.push({uid,name,price,sub,cat});
-  if(disc>0&&cartTotal()<999){
-    disc=0;
-    document.querySelectorAll('.dpill').forEach((b,i)=>b.classList.toggle('on',i===0));
-    document.querySelectorAll('.cdt-pill').forEach((b,i)=>b.classList.toggle('on',i===0));
-  }
   updateCount(); render(); renderCombos(); updateSavingsNudge();
 }
 function updateCount(){
@@ -1052,20 +1043,15 @@ function renderCart(){
   const dtot=discTotal();
   const saved=tot-dtot;
 
-  const cp10=document.getElementById('cp10');
-  const cp20=document.getElementById('cp20');
-  if(tot<999){ cp10&&cp10.classList.add('disabled'); cp20&&cp20.classList.add('disabled'); }
-  else{ cp10&&cp10.classList.remove('disabled'); cp20&&cp20.classList.remove('disabled'); }
-
   if(!cart.length){
     body.innerHTML='<div class="cart-empty">No services added yet.<br><small style="margin-top:6px;display:block">Browse and tap <strong>+ Add</strong> on any service.</small></div>';
     sum.innerHTML=''; csi.classList.remove('show'); cmw.classList.remove('show'); return;
   }
 
   body.innerHTML=cart.map(c=>{
-    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
+    const discApplies=disc>0&&isDiscountable(c.cat,c.price);
     const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
-    const noDiscTag=disc>0&&tot>=999&&!isDiscountable(c.cat,c.price)?`<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px">No discount on this item</span>`:'';
+    const noDiscTag=disc>0&&!isDiscountable(c.cat,c.price)?`<span style="font-size:10px;color:var(--muted);display:block;margin-top:2px">No discount on this item</span>`:'';
     const priceDisplay=discApplies
       ?`<div style="text-align:right"><div style="font-size:11px;color:var(--muted);text-decoration:line-through;line-height:1.2">${inr(c.price)}</div><div class="ci-price" style="color:var(--green)">${inr(dp)}</div></div>`
       :`<div class="ci-price">${inr(dp)}</div>`;
@@ -1076,11 +1062,7 @@ function renderCart(){
     </div>`;
   }).join('');
 
-  if(disc>0&&tot<999){
-    cmw.classList.add('show');
-    cmw.innerHTML=`⚠️ Add ${inr(999-tot)} more to unlock ${disc}% off. Currently showing regular prices.`;
-    csi.classList.remove('show');
-  }else if(disc>0&&saved>0){
+  if(disc>0&&saved>0){
     cmw.classList.remove('show');
     csi.classList.add('show');
     csi.innerHTML=`🎉 You're saving <strong>${inr(saved)}</strong> with your ${disc}% member discount!`;
@@ -1088,18 +1070,13 @@ function renderCart(){
     cmw.classList.remove('show'); csi.classList.remove('show');
   }
 
-  const effectiveTot=disc>0&&tot>=999?dtot:tot;
+  const effectiveTot=disc>0&&saved>0?dtot:tot;
   sum.innerHTML=`
-    ${disc>0&&tot>=999?`<div class="cs-row"><span>Subtotal</span><span>${inr(tot)}</span></div>
+    ${disc>0&&saved>0?`<div class="cs-row"><span>Subtotal</span><span>${inr(tot)}</span></div>
     <div class="cs-row"><span>Discount (${disc}%)</span><span style="color:var(--green)">−${inr(saved)}</span></div>`:''}<div class="cs-row total"><span>Total</span><span>${inr(effectiveTot)}</span></div>`;
 }
 function removeCart(uid){
   cart=cart.filter(c=>c.uid!==uid);
-  if(disc>0&&cartTotal()<999){
-    disc=0;
-    document.querySelectorAll('.dpill').forEach((b,i)=>b.classList.toggle('on',i===0));
-    document.querySelectorAll('.cdt-pill').forEach((b,i)=>b.classList.toggle('on',i===0));
-  }
   updateCount(); renderCart(); render(); renderCombos(); updateSavingsNudge();
 }
 function openCart(){renderCart();document.getElementById('ov').classList.add('show');document.getElementById('cart-drawer').classList.add('show');}
@@ -1140,12 +1117,12 @@ function openBook(){
   const csp=document.getElementById('csp');
   if(cart.length){
     const items=cart.map(c=>{
-      const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
+      const discApplies=disc>0&&isDiscountable(c.cat,c.price);
       const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
       return `<div class="csp-item"><span>${c.name}${c.sub?' ('+c.sub+')':''}</span><span>${inr(dp)}</span></div>`;
     }).join('');
     csp.innerHTML=`<div class="csp-title">Selected services</div>${items}
-      ${disc>0&&tot>=999&&saved>0?`<div class="csp-item" style="color:var(--green);font-weight:600;margin-top:6px;border-top:1px solid var(--border-g);padding-top:6px"><span>You save</span><span>−${inr(saved)}</span></div>`:''}<div class="csp-item" style="font-weight:600;margin-top:4px"><span>Total</span><span>${inr(disc>0&&tot>=999?dtot:tot)}</span></div>`;
+      ${disc>0&&saved>0?`<div class="csp-item" style="color:var(--green);font-weight:600;margin-top:6px;border-top:1px solid var(--border-g);padding-top:6px"><span>You save</span><span>−${inr(saved)}</span></div>`:''}<div class="csp-item" style="font-weight:600;margin-top:4px"><span>Total</span><span>${inr(disc>0&&saved>0?dtot:tot)}</span></div>`;
   } else {
     csp.innerHTML=`<div class="csp-title">No services selected</div><p style="font-size:13px;color:var(--muted)">You can still book — mention what you need in the notes.</p>`;
   }
@@ -1170,11 +1147,11 @@ function submitBook(){
   if(!selTime){alert('Please choose a time');return;}
   const tot=cartTotal(),dtot=discTotal(),saved=tot-dtot;
   const svcs=cart.length?cart.map(c=>{
-    const discApplies=disc>0&&tot>=999&&isDiscountable(c.cat,c.price);
+    const discApplies=disc>0&&isDiscountable(c.cat,c.price);
     const dp=discApplies?Math.round(c.price*(1-disc/100)):c.price;
     return `• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(dp)}`;
   }).join('%0A'):'• To be discussed';
-  const totLine=disc>0&&tot>=999&&saved>0
+  const totLine=disc>0&&saved>0
     ?`%0ADiscount (${disc}%25): −${inr(saved)}%0ATotal: ${inr(dtot)}`
     :`%0ATotal: ${inr(tot)}`;
   const msg=`Hi Aishwarya! I'd like to book an appointment at Mood Salon.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ADate: ${selDate}%0ATime: ${selTime}%0A%0AServices:%0A${svcs}${totLine}${notes?'%0A%0ANotes: '+encodeURIComponent(notes):''}`;
