@@ -390,19 +390,18 @@ a{color:inherit;text-decoration:none}
     </button>
   </div>
 
-  <!-- DISCOUNT PILLS -->
+  <!-- DISCOUNT TOGGLE -->
   <div class="disc-row">
     <div class="disc-label">
       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4A373" stroke-width="2"><path d="M20.59 13.41 11 23l-8.99-9 .01-.01L11 1h9.59c.83 0 1.5.67 1.5 1.5v9.91c0 .39-.16.78-.5 1Z"/><circle cx="14.5" cy="6.5" r="1.5"/></svg>
-      Are you a member? Unlock your discount
+      🌧️ Monsoon Offer — prices drop instantly
     </div>
     <div class="disc-pills" id="disc-pills">
-      <button class="dpill on" data-d="0" onclick="setDisc(0,this)"><span class="dp-pct">0%</span><span class="dp-lbl">No card</span></button>
-      <button class="dpill" data-d="10" onclick="setDisc(10,this)"><span class="dp-pct">10%</span><span class="dp-lbl">Gold</span></button>
-      <button class="dpill" data-d="20" onclick="setDisc(20,this)"><span class="dp-pct">20%</span><span class="dp-lbl">Platinum</span></button>
+      <button class="dpill on" data-d="0" onclick="setDisc(0,this)"><span class="dp-lbl">Regular prices</span></button>
+      <button class="dpill" data-d="20" onclick="setDisc(20,this)"><span class="dp-lbl">Apply Monsoon Offer</span></button>
     </div>
     <div class="savings-nudge" id="savings-nudge" style="display:none">
-      <span id="sn-l">Gold saves you on this booking</span>
+      <span id="sn-l">Monsoon Offer applied to your booking</span>
       <span class="sn-r" id="sn-r">₹0 off</span>
     </div>
   </div>
@@ -559,7 +558,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="tnc-footer">
-  <strong style="color:var(--dark)">T&amp;C Apply</strong> · Gold 10% &amp; Platinum 20% member discounts apply on <strong style="color:var(--dark)">all services</strong> — except threading &amp; combo deals.<br>
+  <strong style="color:var(--dark)">T&amp;C Apply</strong> · 🌧️ Monsoon Offer applies on <strong style="color:var(--dark)">all services</strong> — except threading &amp; combo deals.<br>
   For active members only. Prices subject to change without prior notice.
 </div>
 
@@ -593,12 +592,11 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="d-footer">
     <div class="cart-disc-toggle" id="cdt">
-      <div class="cdt-title">Member discount</div>
+      <div class="cdt-title">🌧️ Monsoon Offer</div>
       <div class="cdt-sub">Applies to <strong style="color:var(--gold-dk)">all services</strong> · except threading &amp; combo deals</div>
       <div class="cdt-pills">
-        <button class="cdt-pill on" data-d="0" onclick="setDiscFromCart(0,this)"><span class="cp-pct">–</span><span class="cp-lbl">No card</span></button>
-        <button class="cdt-pill" data-d="10" id="cp10" onclick="setDiscFromCart(10,this)"><span class="cp-pct">10%</span><span class="cp-lbl">Gold</span></button>
-        <button class="cdt-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-pct">20%</span><span class="cp-lbl">Platinum</span></button>
+        <button class="cdt-pill on" data-d="0" onclick="setDiscFromCart(0,this)"><span class="cp-lbl">Regular prices</span></button>
+        <button class="cdt-pill" data-d="20" id="cp20" onclick="setDiscFromCart(20,this)"><span class="cp-lbl">Apply Monsoon Offer</span></button>
       </div>
     </div>
     <div class="cart-min-warn" id="cmw"></div>
@@ -608,7 +606,7 @@ a{color:inherit;text-decoration:none}
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book these services
     </button>
-    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Discount on all services except threading &amp; combos.<br>Gold 10% &amp; Platinum 20% for active members.</div>
+    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Monsoon Offer on all services except threading &amp; combos.<br>For a limited time only.</div>
   </div>
 </div>
 
@@ -732,7 +730,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-// ══════════════ DATA (matches printed Service Menu · discount rule revised Jul 2026: Gold 10% / Platinum 20% on ALL services except threading & combos) ══════════════
+// ══════════════ DATA (matches printed Service Menu · Monsoon Offer Jul 2026: flat 20% off ALL services except threading & combos — displayed as outcome prices only, no % shown) ══════════════
 const HL=['Upto neck','Shoulder','Below shoulder','Waist','Below waist'];
 const HL7=['Only fringe','Crown','Upto neck','Shoulder','Below shoulder','Waist','Below waist'];
 const SL=['Shoulder','Below shoulder','Waist','Below waist'];
@@ -964,7 +962,7 @@ function updateSavingsNudge(){
   const saved=tot-dtot;
   if(saved<=0){ nudge.style.display='none'; return; }
   nudge.style.display='flex';
-  document.getElementById('sn-l').textContent=`${disc===10?'Gold':'Platinum'} discount on your ${inr(tot)} cart`;
+  document.getElementById('sn-l').textContent=`Monsoon Offer on your ${inr(tot)} cart`;
   document.getElementById('sn-r').textContent=`${inr(saved)} off`;
 }
 
