@@ -90,6 +90,16 @@ a{color:inherit;text-decoration:none}
 .cart-count{background:var(--gold);color:var(--maroon-dk);border-radius:99px;font-size:10px;font-weight:700;padding:2px 6px;min-width:17px;text-align:center;display:none}
 .cart-count.show{display:inline-block}
 
+/* ── 20% OFF TOGGLE ── */
+.disc-row{padding:10px 16px 11px;border-top:1px solid var(--border);background:var(--bg2)}
+.disc-label{font-size:11px;font-weight:700;color:var(--dark);margin-bottom:2px;display:flex;align-items:center;gap:5px}
+.disc-sub{font-size:9.5px;color:var(--muted);margin-bottom:8px}
+.disc-pills{display:flex;gap:6px}
+.dpill{flex:1;padding:8px 6px;border-radius:8px;border:1.5px solid var(--border-g);font-size:11px;color:var(--muted);background:#fff;cursor:pointer;text-align:center;font-weight:600;transition:all .18s}
+.dpill.on{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.savings-nudge{background:var(--maroon-dk);color:#FFF3E0;border-radius:8px;padding:8px 12px;display:flex;align-items:center;justify-content:space-between;margin-top:8px;font-size:11px}
+.savings-nudge .sn-r{font-size:15px;font-weight:700;color:var(--gold-lt);font-family:"Playfair Display",serif}
+
 /* ── SLOTS ── */
 .slots-wrap{padding:13px 16px 11px;background:var(--bg)}
 .sec-lbl{font-size:10px;font-weight:700;color:var(--maroon);text-transform:uppercase;letter-spacing:.09em;margin-bottom:9px;display:flex;align-items:center;gap:5px}
@@ -104,14 +114,44 @@ a{color:inherit;text-decoration:none}
 .sok{font-size:8px;color:var(--green);font-weight:600}
 .scl{font-size:8px;color:var(--sindoor);font-weight:600}
 
+/* ── COLLAPSIBLE OFFER BANNERS ── */
+.offer-bnr{margin:14px 16px 0;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(74,11,28,.10)}
+.bnr-hd{width:100%;border:none;background:transparent;font:inherit;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 14px 12px;text-align:left;position:relative;color:#fff}
+.bnr-ic{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;background:rgba(255,255,255,.14);border:1px solid rgba(243,213,138,.45)}
+.bnr-txt{flex:1;min-width:0;display:flex;flex-direction:column}
+.bnr-k{font-size:8.5px;font-weight:700;letter-spacing:.16em;color:var(--gold-lt)}
+.bnr-txt b{font-family:"Playfair Display",serif;font-size:21px;font-weight:700;letter-spacing:.03em;line-height:1.1;margin-top:1px}
+.bnr-txt small{font-size:10.5px;opacity:.85;margin-top:2px}
+.bnr-chev{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s}
+.offer-bnr.open .bnr-chev{transform:rotate(180deg)}
+.bnr-peek{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 14px 12px}
+.bnr-peek::-webkit-scrollbar{display:none}
+.peek{flex-shrink:0;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:99px;padding:4px 10px;font-size:10.5px;color:#fff;white-space:nowrap}
+.peek b{color:var(--gold-lt);font-family:"Playfair Display",serif;margin-left:4px}
+.bnr-tap{font-size:10px;font-weight:700;letter-spacing:.1em;text-align:center;padding:7px;color:var(--maroon-dk);background:var(--gold-lt);cursor:pointer}
+.offer-bnr.open .bnr-peek,.offer-bnr.open .bnr-tap{display:none}
+.bnr-body{display:none}
+.offer-bnr.open .bnr-body{display:block}
+.bnr-nav .bnr-top{background:radial-gradient(120% 140% at 90% 0%,var(--maroon-md) 0%,var(--maroon) 45%,var(--maroon-dk) 100%);position:relative}
+.bnr-nav .bnr-top:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(243,213,138,.16) 1.3px,transparent 1.5px);background-size:13px 13px;pointer-events:none}
+.bnr-nav .bnr-top>*{position:relative}
+.bnr-nav .bnr-body{background:var(--bg)}
+.bnr-spa .bnr-top{background:linear-gradient(120deg,var(--peacock),#0A4E66)}
+.bnr-spa .bnr-k{color:#BFE9F5}
+.bnr-spa .bnr-tap{background:#CDEFF8;color:#0A4E66}
+.bnr-spa .bnr-body{background:linear-gradient(180deg,#fff,#FDF3E4)}
+.bnr-strip{display:flex;height:5px}
+.bnr-strip span{flex:1}
+.offer-note{margin:10px 14px 12px;font-size:10.5px;line-height:1.5;color:var(--maroon);background:rgba(217,164,65,.14);border:1px dashed rgba(217,164,65,.6);border-radius:9px;padding:8px 10px;text-align:center}
+
 /* ── NAVRATRI OFFERS ── */
-.nav-hd{text-align:center;padding:20px 16px 4px}
+.nav-hd{text-align:center;padding:14px 16px 0}
 .nav-hd .orn{color:var(--marigold);font-size:14px;letter-spacing:6px}
 .nav-hd h2{font-family:"Playfair Display",serif;font-weight:700;font-size:30px;color:var(--maroon);letter-spacing:.04em;line-height:1.05}
 .nav-hd .sub{font-family:"Playfair Display",serif;font-size:12px;letter-spacing:.45em;color:var(--dark);margin-top:2px;padding-left:.45em}
 .nav-hd .tagl{font-size:9.5px;letter-spacing:.16em;color:var(--muted);margin-top:8px}
 .ltd{display:inline-block;margin-top:8px;background:var(--rani);color:#fff;font-size:9px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:99px}
-.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px 16px 4px}
+.offer-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px 12px 2px}
 .tile{position:relative;background:#fff;border-radius:12px;padding:14px 10px 10px;text-align:center;border:1px solid var(--border);overflow:hidden;display:flex;flex-direction:column}
 .tile:before{content:"";position:absolute;top:0;left:0;right:0;height:5px;background:var(--c)}
 .tile-ic{width:32px;height:32px;border-radius:50%;margin:0 auto 6px;display:flex;align-items:center;justify-content:center;font-size:16px;background:color-mix(in srgb,var(--c) 14%,#fff)}
@@ -130,12 +170,9 @@ a{color:inherit;text-decoration:none}
 .ribbon{position:absolute;top:10px;right:-24px;transform:rotate(40deg);background:var(--marigold);color:#fff;font-size:8px;font-weight:700;padding:2px 26px;letter-spacing:.06em}
 
 /* ── HAIR SPA OFFER ── */
-.spa{margin:18px 16px 0;background:linear-gradient(180deg,#fff,#FDF3E4);border:1px solid rgba(14,108,140,.18);border-radius:16px;overflow:hidden}
-.spa-hd{background:linear-gradient(120deg,var(--peacock),#0A4E66);color:#fff;padding:14px 16px;position:relative}
-.spa-hd .script{font-size:21px;color:#BFE9F5;line-height:1}
-.spa-hd h3{font-family:"Playfair Display",serif;font-size:24px;font-weight:700;letter-spacing:.03em}
-.spa-any{display:inline-block;background:var(--gold-lt);color:#3E2A07;font-size:9.5px;font-weight:700;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-top:4px}
-.spa-leaf{position:absolute;right:14px;top:14px;font-size:30px}
+.spa-intro{text-align:center;padding:12px 14px 4px}
+.spa-intro .script{font-size:22px;color:var(--peacock);line-height:1}
+.spa-any{display:inline-block;background:var(--gold-lt);color:#3E2A07;font-size:9.5px;font-weight:700;letter-spacing:.14em;padding:3px 10px;border-radius:4px;margin-top:5px}
 .srow{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px dashed rgba(14,108,140,.18)}
 .srow-br{flex:1;min-width:0;font-family:"Playfair Display",serif;font-weight:600;font-size:14px;color:var(--dark);line-height:1.15}
 .srow-br small{display:block;font-family:"DM Sans",sans-serif;font-size:8px;letter-spacing:.14em;color:var(--muted);font-weight:500;margin-top:2px;text-transform:uppercase}
@@ -177,7 +214,10 @@ a{color:inherit;text-decoration:none}
 .svc-row:last-child{border-bottom:none}
 .svc-name{flex:1;font-size:13px;line-height:1.4;color:var(--dark);min-width:0}
 .svc-right{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.svc-prices{text-align:right}
 .p-now{font-size:15.5px;font-weight:600;font-family:"Playfair Display",serif;color:var(--dark);line-height:1.1;text-align:right}
+.p-was{font-size:10.5px;color:var(--muted);text-decoration:line-through;line-height:1.2}
+.p-save{font-size:9.5px;color:var(--green);background:rgba(30,122,69,.1);padding:2px 7px;border-radius:99px;margin-top:3px;display:inline-block;font-weight:600}
 .add-btn{background:var(--bg);border:1.5px solid var(--border);border-radius:8px;padding:6px 11px;font-size:11.5px;color:var(--dark);cursor:pointer;white-space:nowrap;font-weight:700}
 .add-btn:hover{border-color:var(--gold)}
 .add-btn.added{background:var(--maroon);color:#fff;border-color:var(--maroon)}
@@ -249,7 +289,20 @@ a{color:inherit;text-decoration:none}
 .cart-empty{padding:40px 20px;text-align:center;color:var(--muted);font-size:13.5px;line-height:1.6}
 .d-footer{padding:16px 20px;border-top:1px solid var(--border);flex-shrink:0;background:#fff}
 .cart-summary{margin-bottom:14px}
-.cs-row{display:flex;justify-content:space-between;font-size:17px;color:var(--dark);font-weight:500;font-family:"Playfair Display",serif}
+.cs-row{display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:6px;color:var(--muted)}
+.cs-row.total{font-size:17px;color:var(--dark);font-weight:500;font-family:"Playfair Display",serif;border-top:1px solid var(--border);padding-top:10px;margin-top:4px;margin-bottom:0}
+.ci-tag{display:inline-block;margin-top:4px;font-size:9.5px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(122,20,48,.08);color:var(--maroon)}
+.ci-tag.muted{background:rgba(138,110,98,.12);color:var(--muted)}
+.cart-disc-toggle{margin-bottom:12px;background:var(--bg2);border:1px solid var(--border-g);border-radius:var(--rs);padding:12px 14px}
+.cdt-title{font-size:11.5px;font-weight:700;color:var(--maroon);margin-bottom:2px;letter-spacing:.03em;text-transform:uppercase}
+.cdt-sub{font-size:10.5px;color:var(--muted);margin-bottom:10px}
+.cdt-pills{display:flex;gap:6px}
+.cdt-pill{flex:1;padding:9px 8px;border-radius:var(--rs);border:1.5px solid var(--border-g);font-size:11.5px;color:var(--muted);background:#fff;cursor:pointer;text-align:center;font-weight:600}
+.cdt-pill.on{background:var(--maroon);border-color:var(--maroon);color:#fff}
+.cart-info{border-radius:var(--rs);padding:10px 14px;font-size:12px;margin-bottom:12px;display:none;line-height:1.5}
+.cart-info.show{display:block}
+.cart-info.save{background:rgba(30,122,69,.08);border:1px solid rgba(30,122,69,.15);color:var(--green)}
+.cart-info.offer{background:rgba(217,164,65,.12);border:1px solid rgba(217,164,65,.45);color:#7A4B00}
 
 /* BOOKING */
 .bd-body{padding:20px;overflow-y:auto;flex:1}
@@ -342,6 +395,18 @@ a{color:inherit;text-decoration:none}
     </div>
     <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cart-count">0</span></button>
   </div>
+  <div class="disc-row">
+    <div class="disc-label">🎉 Festive 20% off — regular menu services</div>
+    <div class="disc-sub">Not on Navratri &amp; hair spa offers (already discounted) or threading</div>
+    <div class="disc-pills">
+      <button class="dpill on" data-d="0" onclick="setDisc(0)">Regular prices</button>
+      <button class="dpill" data-d="20" onclick="setDisc(20)">Apply 20% off</button>
+    </div>
+    <div class="savings-nudge" id="savings-nudge" style="display:none">
+      <span id="sn-l">20% off applied</span>
+      <span class="sn-r" id="sn-r">₹0 off</span>
+    </div>
+  </div>
 </div>
 
 <!-- SLOTS -->
@@ -353,32 +418,51 @@ a{color:inherit;text-decoration:none}
   <div class="slots-row" id="slots-row"></div>
 </div>
 
-<!-- NAVRATRI OFFERS — owner managed -->
-<div id="navratri-wrap">
-  <div class="nav-hd">
-    <div class="orn">✦ 🪔 ✦</div>
-    <h2>NAVRATRI</h2>
-    <div class="sub">OFFERS</div>
-    <div class="tagl">LOOK GOOD ✦ FEEL GOOD ✦ CELEBRATE YOU</div>
-    <div class="ltd">LIMITED TIME</div>
+<!-- NAVRATRI OFFERS — collapsible banner -->
+<div class="offer-bnr bnr-nav" id="navratri-wrap">
+  <div class="bnr-strip" aria-hidden="true"><span style="background:#F08A12"></span><span style="background:#D6246E"></span><span style="background:#D9A441"></span><span style="background:#3E9B3A"></span><span style="background:#0E6C8C"></span><span style="background:#2B3F9E"></span><span style="background:#7B3FA0"></span><span style="background:#E0402E"></span></div>
+  <div class="bnr-top">
+    <button class="bnr-hd" onclick="toggleBanner('navratri-wrap')" aria-expanded="false">
+      <span class="bnr-ic">🪔</span>
+      <span class="bnr-txt"><span class="bnr-k">LIMITED TIME · FESTIVE PRICES</span><b>NAVRATRI OFFERS</b><small id="nav-sum"></small></span>
+      <span class="bnr-chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="bnr-peek" id="nav-peek"></div>
   </div>
-  <div class="offer-grid" id="offer-grid"></div>
+  <div class="bnr-tap" onclick="toggleBanner('navratri-wrap')">TAP TO VIEW ALL OFFERS ▾</div>
+  <div class="bnr-body">
+    <div class="nav-hd">
+      <div class="tagl">LOOK GOOD ✦ FEEL GOOD ✦ CELEBRATE YOU</div>
+    </div>
+    <div class="offer-grid" id="offer-grid"></div>
+    <div class="offer-note">🪔 Navratri offer prices are already discounted — the 20% off doesn't apply on top.</div>
+  </div>
 </div>
 
-<!-- HAIR SPA OFFER — owner managed -->
-<div class="spa" id="spa-wrap">
-  <div class="spa-hd">
-    <div class="spa-leaf">🌿</div>
-    <div class="script">Healthy scalp, beautiful hair</div>
-    <h3>HAIR SPA OFFER</h3>
-    <div class="spa-any">ANY LENGTH · SPA + HAIRCUT</div>
+<!-- HAIR SPA OFFER — collapsible banner -->
+<div class="offer-bnr bnr-spa" id="spa-wrap">
+  <div class="bnr-top">
+    <button class="bnr-hd" onclick="toggleBanner('spa-wrap')" aria-expanded="false">
+      <span class="bnr-ic">🌿</span>
+      <span class="bnr-txt"><span class="bnr-k">ANY LENGTH · SPA + HAIRCUT</span><b>HAIR SPA OFFER</b><small id="spa-sum"></small></span>
+      <span class="bnr-chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="bnr-peek" id="spa-peek"></div>
   </div>
-  <div id="spa-list"></div>
-  <div class="perks">
-    <div><span>🍃</span>Deep<br>nourishment</div>
-    <div><span>💧</span>Healthier<br>scalp</div>
-    <div><span>✨</span>Softer,<br>shinier hair</div>
-    <div><span>🌸</span>Relax and<br>rejuvenate</div>
+  <div class="bnr-tap" onclick="toggleBanner('spa-wrap')">TAP TO VIEW ALL SPA OFFERS ▾</div>
+  <div class="bnr-body">
+    <div class="spa-intro">
+      <div class="script">Healthy scalp, beautiful hair</div>
+      <div class="spa-any">ANY LENGTH · SPA + HAIRCUT</div>
+    </div>
+    <div id="spa-list"></div>
+    <div class="perks">
+      <div><span>🍃</span>Deep<br>nourishment</div>
+      <div><span>💧</span>Healthier<br>scalp</div>
+      <div><span>✨</span>Softer,<br>shinier hair</div>
+      <div><span>🌸</span>Relax and<br>rejuvenate</div>
+    </div>
+    <div class="offer-note" style="margin-top:0">🌿 Hair spa offer prices are already discounted — the 20% off doesn't apply on top.</div>
   </div>
 </div>
 
@@ -499,7 +583,8 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <div class="tnc-footer">
-  <strong style="color:var(--dark)">T&amp;C Apply</strong> · 🪔 Navratri offers valid for a limited time only.<br>
+  <strong style="color:var(--dark)">T&amp;C Apply</strong> · 🪔 Navratri &amp; hair spa offers valid for a limited time and already discounted — no further discount applies.<br>
+  🎉 Festive 20% off applies on regular menu services — except threading. For active members only.<br>
   Prices subject to change without prior notice.
 </div>
 
@@ -528,12 +613,22 @@ a{color:inherit;text-decoration:none}
   </div>
   <div class="d-body"><div class="cart-body" id="cart-body"></div></div>
   <div class="d-footer">
+    <div class="cart-disc-toggle">
+      <div class="cdt-title">🎉 Festive 20% off</div>
+      <div class="cdt-sub">On regular menu services · not on Navratri &amp; hair spa offers or threading</div>
+      <div class="cdt-pills">
+        <button class="cdt-pill on" data-d="0" onclick="setDisc(0)">Regular prices</button>
+        <button class="cdt-pill" data-d="20" onclick="setDisc(20)">Apply 20% off</button>
+      </div>
+    </div>
+    <div class="cart-info offer" id="cart-offer-info"></div>
+    <div class="cart-info save" id="cart-save-info"></div>
     <div class="cart-summary" id="cart-sum"></div>
     <button class="btn btn-gold btn-full" onclick="closeCartOpenBook()">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
       Book these services
     </button>
-    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · Navratri offers valid for a limited time only.</div>
+    <div style="text-align:center;font-size:10px;color:var(--muted);margin-top:10px;line-height:1.5">T&amp;C apply · 20% off on regular services except threading. Navratri &amp; hair spa offers are already discounted.</div>
   </div>
 </div>
 
@@ -567,7 +662,7 @@ a{color:inherit;text-decoration:none}
 
 
 <script>
-// ══════════════ VERSION: Navratri v1.1 · 9 Oct 2026 · no owner manager — offers live in DEFAULT_DEALS below ══════════════
+// ══════════════ VERSION: Navratri v1.2 · 9 Oct 2026 · 20% off on regular menu, offers in collapsible banners ══════════════
 
 
 // ══════════════ SERVICE MENU (regular prices, no discount toggle) ══════════════
@@ -633,7 +728,7 @@ const DEFAULT_DEALS=[
 const DEALS=DEFAULT_DEALS;
 
 // ══════════════ STATE ══════════════
-let activeCat='all', srchQ='', cart=[], selDate='', selTime='';
+let disc=0, activeCat='all', srchQ='', cart=[], selDate='', selTime='';
 const lenSel={};
 SVCS.forEach(s=>lenSel[s.id]=0);
 
@@ -664,12 +759,21 @@ function buildSlotsRow(){
 // ══════════════ HELPERS ══════════════
 function inr(p){return '₹'+Math.round(p).toLocaleString('en-IN')}
 function cartTotal(){return cart.reduce((a,c)=>a+c.price,0)}
+// 20% off: regular menu only — never on Navratri / hair spa offers (cat 'combo') or threading
+function isDiscountable(cat){return cat!=='thread'&&cat!=='combo'}
+function itemPrice(c){return disc>0&&isDiscountable(c.cat)?Math.round(c.price*(1-disc/100)):c.price}
+function discTotal(){return cart.reduce((a,c)=>a+itemPrice(c),0)}
+function hasOffers(){return cart.some(c=>c.cat==='combo')}
 function esc(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
 function h(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 function inCart(uid){return cart.some(c=>c.uid===uid)}
 
 // ══════════════ RENDER SERVICES ══════════════
-function priceHTML(p){return `<div class="p-now">${inr(p)}</div>`}
+function priceHTML(p,cat){
+  const on=disc>0&&isDiscountable(cat);
+  const shown=on?Math.round(p*(1-disc/100)):p;
+  return `<div class="svc-prices">${on?`<div class="p-was">${inr(p)}</div>`:''}<div class="p-now">${inr(shown)}</div>${on?`<div class="p-save">Save ${inr(p-shown)}</div>`:''}</div>`;
+}
 function addBtnHTML(uid,name,price,sub,cat){
   const a=inCart(uid);
   return `<button class="add-btn${a?' added':''}" onclick="toggleCart('${uid}','${esc(name)}',${price},'${esc(sub)}','${cat}')">${a?'✓ Added':'+ Add'}</button>`;
@@ -681,7 +785,7 @@ function lenSvcHTML(s){
   return `<div class="svc-grp" style="--gc:${CAT_COL[s.cat]}">
     <div class="svc-grp-hdr"><span class="svc-grp-title">${s.title}${s.isNew?' <span class="new-badge">✨ New</span>':''}</span><span class="svc-grp-tag">${s.tag}</span></div>
     <div class="len-bar">${lenBtns}</div>
-    <div class="svc-row"><div class="svc-name">${sub}</div><div class="svc-right">${priceHTML(price)}${addBtnHTML(uid,s.title,price,sub,s.cat)}</div></div>
+    <div class="svc-row"><div class="svc-name">${sub}</div><div class="svc-right">${priceHTML(price,s.cat)}${addBtnHTML(uid,s.title,price,sub,s.cat)}</div></div>
   </div>`;
 }
 function flatGrpHTML(g,q){
@@ -689,7 +793,7 @@ function flatGrpHTML(g,q){
   if(!items.length)return '';
   const rows=items.map(i=>{
     const uid=`flat_${i.n.replace(/[^a-z0-9]/gi,'_')}`;
-    return `<div class="svc-row"><div class="svc-name">${i.n}</div><div class="svc-right">${priceHTML(i.p)}${addBtnHTML(uid,i.n,i.p,'',g.cat)}</div></div>`;
+    return `<div class="svc-row"><div class="svc-name">${i.n}</div><div class="svc-right">${priceHTML(i.p,g.cat)}${addBtnHTML(uid,i.n,i.p,'',g.cat)}</div></div>`;
   }).join('');
   const note=g.note&&!g.note.startsWith('✨')?`<div class="note-bar">${g.note}</div>`:'';
   const newBadge=g.note&&g.note.startsWith('✨')?`<span class="new-badge">✨ New</span>`:'';
@@ -751,10 +855,16 @@ function liveDeals(section){
 function renderDeals(){
   const nav=liveDeals('navratri');
   document.getElementById('navratri-wrap').classList.toggle('hidden',!nav.length);
+  const peek=list=>list.slice().sort((a,b)=>a.price-b.price).map(d=>`<span class="peek">${h(d.name)}<b>${inr(d.price)}</b></span>`).join('');
+  const from=list=>list.length?inr(Math.min(...list.map(d=>d.price))):'';
+  document.getElementById('nav-sum').textContent=`${nav.length} festive deals · from ${from(nav)}`;
+  document.getElementById('nav-peek').innerHTML=peek(nav);
   document.getElementById('offer-grid').innerHTML=nav.map(d=>tileHTML(d)).join('');
 
   const spa=liveDeals('spa');
   document.getElementById('spa-wrap').classList.toggle('hidden',!spa.length);
+  document.getElementById('spa-sum').textContent=`${spa.length} spa + haircut deals · from ${from(spa)}`;
+  document.getElementById('spa-peek').innerHTML=peek(spa);
   const main=spa.filter(d=>d.badge!=='new'&&d.badge!=='addon');
   const neu=spa.filter(d=>d.badge==='new');
   const add=spa.filter(d=>d.badge==='addon');
@@ -764,8 +874,32 @@ function renderDeals(){
     add.map(d=>spaRowHTML(d)).join('');
 }
 
+function toggleBanner(id){
+  const el=document.getElementById(id);
+  const open=el.classList.toggle('open');
+  el.querySelector('.bnr-hd').setAttribute('aria-expanded',open);
+  if(open){
+    const stickyEl=document.querySelector('.sticky-hdr');
+    const top=el.getBoundingClientRect().top+window.pageYOffset-(stickyEl?stickyEl.offsetHeight:0)-8;
+    window.scrollTo({top,behavior:'smooth'});
+  }
+}
+
 // ══════════════ CONTROLS ══════════════
 function setLen(id,i){lenSel[id]=i;render()}
+function setDisc(d){
+  disc=d;
+  document.querySelectorAll('.dpill,.cdt-pill').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.d)===d));
+  render();renderCart();updateSavingsNudge();
+}
+function updateSavingsNudge(){
+  const nudge=document.getElementById('savings-nudge');
+  const saved=cartTotal()-discTotal();
+  if(disc===0||saved<=0){nudge.style.display='none';return;}
+  nudge.style.display='flex';
+  document.getElementById('sn-l').textContent='20% off on your regular services';
+  document.getElementById('sn-r').textContent=`${inr(saved)} off`;
+}
 document.getElementById('cat-list').addEventListener('click',function(e){
   const btn=e.target.closest('.cat');if(!btn)return;
   activeCat=btn.dataset.cat;
@@ -783,7 +917,7 @@ function scrollToServices(){
 function toggleCart(uid,name,price,sub,cat){
   const idx=cart.findIndex(c=>c.uid===uid);
   if(idx>-1)cart.splice(idx,1);else cart.push({uid,name,price,sub,cat});
-  updateCount();render();renderDeals();
+  updateCount();render();renderDeals();updateSavingsNudge();
 }
 function updateCount(){
   const el=document.getElementById('cart-count');
@@ -791,18 +925,39 @@ function updateCount(){
 }
 function renderCart(){
   const body=document.getElementById('cart-body'),sum=document.getElementById('cart-sum');
+  const oi=document.getElementById('cart-offer-info'),si=document.getElementById('cart-save-info');
   if(!cart.length){
     body.innerHTML='<div class="cart-empty">No services added yet.<br><small style="margin-top:6px;display:block">Browse and tap <strong>+ Add</strong> on any service or offer.</small></div>';
-    sum.innerHTML='';return;
+    sum.innerHTML='';oi.classList.remove('show');si.classList.remove('show');return;
   }
-  body.innerHTML=cart.map(c=>`<div class="cart-item">
-      <div style="flex:1;min-width:0"><div class="ci-name">${h(c.name)}</div><div class="ci-sub">${h(c.sub||'')}</div></div>
-      <div class="ci-price">${inr(c.price)}</div>
+  body.innerHTML=cart.map(c=>{
+    const on=disc>0&&isDiscountable(c.cat);
+    let tag='';
+    if(c.cat==='combo') tag=`<span class="ci-tag">${disc>0?'✓ Already at offer price · no extra 20%':'🪔 Offer price'}</span>`;
+    else if(c.cat==='thread'&&disc>0) tag=`<span class="ci-tag muted">No discount on threading</span>`;
+    const price=on
+      ?`<div style="text-align:right"><div style="font-size:11px;color:var(--muted);text-decoration:line-through;line-height:1.2">${inr(c.price)}</div><div class="ci-price" style="color:var(--green)">${inr(itemPrice(c))}</div></div>`
+      :`<div class="ci-price">${inr(c.price)}</div>`;
+    return `<div class="cart-item">
+      <div style="flex:1;min-width:0"><div class="ci-name">${h(c.name)}</div><div class="ci-sub">${h(c.sub||'')}</div>${tag}</div>
+      ${price}
       <button class="ci-rm" onclick="removeCart('${c.uid}')">✕</button>
-    </div>`).join('');
-  sum.innerHTML=`<div class="cs-row"><span>Total</span><span>${inr(cartTotal())}</span></div>`;
+    </div>`;
+  }).join('');
+  const tot=cartTotal(),dtot=discTotal(),saved=tot-dtot;
+  if(disc>0&&hasOffers()){
+    oi.innerHTML=saved>0
+      ?'🪔 Your Navratri / hair spa offers are already at discounted prices, so the 20% off applies to your other services only.'
+      :'🪔 Your Navratri / hair spa offers are already at discounted prices, so the 20% off doesn\'t apply to them.';
+    oi.classList.add('show');
+  }else oi.classList.remove('show');
+  if(disc>0&&saved>0){si.innerHTML=`🎉 You're saving <strong>${inr(saved)}</strong> with 20% off on your regular services!`;si.classList.add('show');}
+  else si.classList.remove('show');
+  sum.innerHTML=(disc>0&&saved>0
+    ?`<div class="cs-row"><span>Subtotal</span><span>${inr(tot)}</span></div><div class="cs-row"><span>20% off (regular services)</span><span style="color:var(--green)">−${inr(saved)}</span></div>`:'')
+    +`<div class="cs-row total"><span>Total</span><span>${inr(dtot)}</span></div>`;
 }
-function removeCart(uid){cart=cart.filter(c=>c.uid!==uid);updateCount();renderCart();render();renderDeals();}
+function removeCart(uid){cart=cart.filter(c=>c.uid!==uid);updateCount();renderCart();render();renderDeals();updateSavingsNudge();}
 function openCart(){renderCart();document.getElementById('ov').classList.add('show');document.getElementById('cart-drawer').classList.add('show');}
 function closeCart(){document.getElementById('ov').classList.remove('show');document.getElementById('cart-drawer').classList.remove('show');}
 function closeCartOpenBook(){closeCart();setTimeout(openBook,320);}
@@ -830,8 +985,11 @@ function pickTime(t,el){selTime=t;document.querySelectorAll('.tt').forEach(x=>x.
 function openBook(){
   const csp=document.getElementById('csp');
   if(cart.length){
-    const items=cart.map(c=>`<div class="csp-item"><span>${h(c.name)}${c.sub?' ('+h(c.sub)+')':''}</span><span>${inr(c.price)}</span></div>`).join('');
-    csp.innerHTML=`<div class="csp-title">Selected services</div>${items}<div class="csp-item" style="font-weight:600;margin-top:6px;border-top:1px solid var(--border-g);padding-top:6px"><span>Total</span><span>${inr(cartTotal())}</span></div>`;
+    const saved=cartTotal()-discTotal();
+    const items=cart.map(c=>`<div class="csp-item"><span>${h(c.name)}${c.sub?' ('+h(c.sub)+')':''}</span><span>${inr(itemPrice(c))}</span></div>`).join('');
+    csp.innerHTML=`<div class="csp-title">Selected services</div>${items}
+      ${saved>0?`<div class="csp-item" style="color:var(--green);font-weight:600;margin-top:6px;border-top:1px solid var(--border-g);padding-top:6px"><span>You save (20% off)</span><span>−${inr(saved)}</span></div>`:''}
+      <div class="csp-item" style="font-weight:600;margin-top:6px;${saved>0?'':'border-top:1px solid var(--border-g);padding-top:6px'}"><span>Total</span><span>${inr(discTotal())}</span></div>`;
   }else{
     csp.innerHTML=`<div class="csp-title">No services selected</div><p style="font-size:13px;color:var(--muted)">You can still book — mention what you need in the notes.</p>`;
   }
@@ -850,8 +1008,10 @@ function submitBook(){
   if(!phone){alert('Please enter your phone number');return;}
   if(!selDate){alert('Please choose a date');return;}
   if(!selTime){alert('Please choose a time');return;}
-  const svcs=cart.length?cart.map(c=>`• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(c.price)}`).join('\n'):'• To be discussed';
-  const msg=`Hi Aishwarya! I'd like to book an appointment at Mood Salon.\n\nName: ${name}\nPhone: ${phone}\nDate: ${selDate}\nTime: ${selTime}\n\nServices:\n${svcs}\nTotal: ${inr(cartTotal())}${notes?'\n\nNotes: '+notes:''}`;
+  const svcs=cart.length?cart.map(c=>`• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(itemPrice(c))}${c.cat==='combo'?' (offer price)':''}`).join('\n'):'• To be discussed';
+  const saved=cartTotal()-discTotal();
+  const totLine=saved>0?`Subtotal: ${inr(cartTotal())}\n20% off (regular services): −${inr(saved)}\nTotal: ${inr(discTotal())}`:`Total: ${inr(discTotal())}`;
+  const msg=`Hi Aishwarya! I'd like to book an appointment at Mood Salon.\n\nName: ${name}\nPhone: ${phone}\nDate: ${selDate}\nTime: ${selTime}\n\nServices:\n${svcs}\n${totLine}${notes?'\n\nNotes: '+notes:''}`;
   document.getElementById('succ').classList.add('show');
   document.getElementById('bform').style.display='none';
   setTimeout(()=>window.open(`https://wa.me/918850268699?text=${encodeURIComponent(msg)}`,'_blank'),400);
