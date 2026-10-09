@@ -140,6 +140,13 @@ a{color:inherit;text-decoration:none}
 .bnr-spa .bnr-k{color:#BFE9F5}
 .bnr-spa .bnr-tap{background:#CDEFF8;color:#0A4E66}
 .bnr-spa .bnr-body{background:linear-gradient(180deg,#fff,#FDF3E4)}
+.bnr-hydra .bnr-top{background:linear-gradient(120deg,#6A3FA8,#2B3F9E)}
+.bnr-hydra .bnr-k{color:#E3D7FF}
+.bnr-hydra .bnr-tap{background:#E3DCF7;color:#3A2780}
+.bnr-hydra .bnr-body{background:linear-gradient(180deg,#fff,#F4EFFF)}
+.bnr-hydra .spa-intro .script{color:#6A3FA8}
+.hy-was{font-size:10px;color:var(--muted);text-decoration:line-through;text-align:right;line-height:1.2;margin-bottom:2px}
+.offer-note.ok{color:#3A2780;background:rgba(106,63,168,.08);border-color:rgba(106,63,168,.35)}
 .bnr-strip{display:flex;height:5px}
 .bnr-strip span{flex:1}
 .offer-note{margin:10px 14px 12px;font-size:10.5px;line-height:1.5;color:var(--maroon);background:rgba(217,164,65,.14);border:1px dashed rgba(217,164,65,.6);border-radius:9px;padding:8px 10px;text-align:center}
@@ -466,6 +473,33 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
+<!-- HYDRA FACIAL OFFER — collapsible banner (20% off applies) -->
+<div class="offer-bnr bnr-hydra" id="hydra-wrap">
+  <div class="bnr-top">
+    <button class="bnr-hd" onclick="toggleBanner('hydra-wrap')" aria-expanded="false">
+      <span class="bnr-ic">💧</span>
+      <span class="bnr-txt"><span class="bnr-k">ANY FACIAL · +₹500 HYDRA UPGRADE</span><b>HYDRA FACIAL OFFER</b><small id="hydra-sum"></small></span>
+      <span class="bnr-chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </button>
+    <div class="bnr-peek" id="hydra-peek"></div>
+  </div>
+  <div class="bnr-tap" onclick="toggleBanner('hydra-wrap')">TAP TO VIEW ALL HYDRA FACIALS ▾</div>
+  <div class="bnr-body">
+    <div class="spa-intro">
+      <div class="script">Deep hydration, instant glow</div>
+      <div class="spa-any">ANY FACIAL + HYDRA · ₹500 EXTRA</div>
+    </div>
+    <div id="hydra-list"></div>
+    <div class="perks">
+      <div><span>💧</span>Deep<br>hydration</div>
+      <div><span>✨</span>Instant<br>glow</div>
+      <div><span>🫧</span>Clean<br>pores</div>
+      <div><span>🌸</span>Soft,<br>plump skin</div>
+    </div>
+    <div class="offer-note ok" style="margin-top:0">🎉 Festive 20% off applies on hydra facials too.</div>
+  </div>
+</div>
+
 <!-- CATEGORIES -->
 <div class="cat-row-wrap">
   <div class="cat-row">
@@ -662,7 +696,7 @@ a{color:inherit;text-decoration:none}
 
 
 <script>
-// ══════════════ VERSION: Navratri v1.2 · 9 Oct 2026 · 20% off on regular menu, offers in collapsible banners ══════════════
+// ══════════════ VERSION: Navratri v1.3 · 9 Oct 2026 · Gel facial, Hydra facial offer (+₹500 upgrade, 20% off applies) ══════════════
 
 
 // ══════════════ SERVICE MENU (regular prices, no discount toggle) ══════════════
@@ -689,7 +723,7 @@ const CAT_COL={colour:'#D6246E',smoothen:'#7B3FA0',spa:'#0E6C8C',facials:'#3E9B3
 const FLAT=[
   {cat:'nails',group:'Manicure',tag:'Nails',items:[{n:'Basic manicure',p:500},{n:'Berry manicure',p:800},{n:'Mint manicure',p:1500},{n:'Bubblegum manicure',p:1500},{n:'Coffee manicure',p:2000}]},
   {cat:'nails',group:'Pedicure',tag:'Nails',items:[{n:'Basic pedicure',p:500},{n:'Berry pedicure',p:800},{n:'Mint pedicure',p:1500},{n:'Bubblegum pedicure',p:1500},{n:'Coffee pedicure',p:2000}]},
-  {cat:'facials',group:'Luxury facial menu',tag:'Facials',items:[{n:'Express facial',p:1250},{n:'Radiance facial',p:1250},{n:'Fruit punch facial',p:1875},{n:'Hydra facial',p:1875},{n:'Gold facial',p:2125},{n:'Whitening facial',p:2500},{n:'Glow facial',p:3125},{n:'O3+ special facial',p:3750},{n:'Facial – Mood Special',p:6250}]},
+  {cat:'facials',group:'Luxury facial menu',tag:'Facials',note:'💧 Upgrade any facial to Hydra for +₹500 — see Hydra facial offer',items:[{n:'Gel facial',p:1250},{n:'Radiance facial',p:1250},{n:'Fruit punch facial',p:1875},{n:'Gold facial',p:2125},{n:'Whitening facial',p:2500},{n:'Glow facial',p:3125},{n:'O3+ special facial',p:3750},{n:'Facial – Mood Special',p:6250}]},
   {cat:'skin',group:'Cleanup',tag:'Skin care',items:[{n:'Cleanup – Jovees',p:700},{n:'Cleanup – Richfeel',p:1000},{n:'Cleanup – O3+',p:1500}]},
   {cat:'colour',group:'Root touch-up',tag:'Hair colour',note:'✨ New service · 1 inch root to hair',items:[{n:'Root touch-up (1 inch root to hair)',p:1500}]},
   {cat:'thread',group:'Face threading',tag:'Threading',items:[{n:'Eyebrow',p:70},{n:'Forehead',p:70},{n:'Sidelocks',p:100},{n:'Upper lip',p:50},{n:'Lower lip',p:50},{n:'Chin',p:50},{n:'Full face',p:350},{n:'Eyebrow + upper lip + lower lip + chin',p:190}]},
@@ -701,6 +735,17 @@ const FLAT=[
   {cat:'body',group:'Body polishing',tag:'Body care',note:'✨ New',items:[{n:'Full arm',p:1200},{n:'Full leg',p:1200},{n:'Full body',p:5000},{n:'Bikini',p:2500}]},
   {cat:'body',group:'Massage',tag:'Body care',note:'✨ New',items:[{n:'Head massage',p:500},{n:'Foot massage',p:500},{n:'Full body massage',p:2500}]},
 ];
+
+// ══════════════ HYDRA FACIAL OFFER ══════════════
+// Every facial in the menu above + ₹500 hydra upgrade. Built automatically — change facial prices above, these follow.
+// These are regular-priced services, so the Festive 20% off DOES apply to them.
+const HYDRA_UPGRADE=500;
+function hydraName(n){
+  if(n.startsWith('Facial – '))return 'Hydra '+n.slice(9)+' facial';
+  const lowerNext=/[a-z]/.test(n[1]||'');
+  return 'Hydra '+(lowerNext?n[0].toLowerCase():n[0])+n.slice(1);
+}
+const HYDRA=FLAT.find(g=>g.cat==='facials').items.map((i,k)=>({id:'h'+k,name:hydraName(i.n),base:i.n,price:i.p+HYDRA_UPGRADE}));
 
 // ══════════════ OFFERS — edit this list to change offers ══════════════
 // section: 'navratri' (grid) or 'spa' (hair spa list) · badge: '' | 'bestseller' | 'new' | 'addon'
@@ -865,6 +910,7 @@ function renderDeals(){
   document.getElementById('spa-wrap').classList.toggle('hidden',!spa.length);
   document.getElementById('spa-sum').textContent=`${spa.length} spa + haircut deals · from ${from(spa)}`;
   document.getElementById('spa-peek').innerHTML=peek(spa);
+  renderHydra();
   const main=spa.filter(d=>d.badge!=='new'&&d.badge!=='addon');
   const neu=spa.filter(d=>d.badge==='new');
   const add=spa.filter(d=>d.badge==='addon');
@@ -885,12 +931,29 @@ function toggleBanner(id){
   }
 }
 
+function hydraNow(p){return disc>0?Math.round(p*(1-disc/100)):p}
+function renderHydra(){
+  const list=document.getElementById('hydra-list');
+  list.innerHTML=HYDRA.map(x=>{
+    const uid='hydra_'+x.id,a=inCart(uid),now=hydraNow(x.price);
+    return `<div class="srow">
+      <div class="sw" style="background:radial-gradient(circle at 35% 35%,#fff,#B9A4E8)">💧</div>
+      <div class="srow-br">${h(x.name)}<small>${h(x.base)} + hydra</small></div>
+      <div>${disc>0?`<div class="hy-was">${inr(x.price)}</div>`:''}<div class="pill" style="--pc:#6A3FA8">${inr(now)}</div></div>
+      <button class="plus${a?' added':''}" aria-label="Add" onclick="toggleCart('${uid}','${esc(x.name)}',${x.price},'Hydra facial offer','facials')">${a?'✓':'+'}</button>
+    </div>`;
+  }).join('');
+  const min=Math.min(...HYDRA.map(x=>hydraNow(x.price)));
+  document.getElementById('hydra-sum').textContent=`${HYDRA.length} hydra facials · from ${inr(min)}${disc>0?' with 20% off':''}`;
+  document.getElementById('hydra-peek').innerHTML=HYDRA.map(x=>`<span class="peek">${h(x.name.replace(/^Hydra /,''))}<b>${inr(hydraNow(x.price))}</b></span>`).join('');
+}
+
 // ══════════════ CONTROLS ══════════════
 function setLen(id,i){lenSel[id]=i;render()}
 function setDisc(d){
   disc=d;
   document.querySelectorAll('.dpill,.cdt-pill').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.d)===d));
-  render();renderCart();updateSavingsNudge();
+  render();renderCart();renderDeals();updateSavingsNudge();
 }
 function updateSavingsNudge(){
   const nudge=document.getElementById('savings-nudge');
