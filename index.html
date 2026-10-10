@@ -784,7 +784,7 @@ a{color:inherit;text-decoration:none}
 
 
 <script>
-// ══════════════ VERSION: Navratri v1.4 · 10 Oct 2026 · smart slots, live hours, quick-jump, offer search, cart bar + hydra upsell, call, group booking, link preview ══════════════
+// ══════════════ VERSION: Navratri v1.4.1 · 10 Oct 2026 · short-length note on global colour + highlights · · smart slots, live hours, quick-jump, offer search, cart bar + hydra upsell, call, group booking, link preview ══════════════
 
 
 // ══════════════ SERVICE MENU (regular prices, no discount toggle) ══════════════
@@ -842,8 +842,8 @@ const COLOURS=['#7A1430','#D6246E','#F08A12','#E0402E','#7B3FA0','#0E6C8C','#3E9
 const DEFAULT_DEALS=[
   {id:'n1',section:'navratri',sort:1,emoji:'💆‍♀️',name:'Hair spa + haircut',details:'',price:699,color:'#7A1430',badge:'bestseller',enabled:true},
   {id:'n2',section:'navratri',sort:2,emoji:'✂️',name:'Haircut + hairwash',details:'',price:399,color:'#F08A12',badge:'',enabled:true},
-  {id:'n3',section:'navratri',sort:3,emoji:'🎨',name:'Hair colour global',details:'',price:1999,color:'#D6246E',badge:'',enabled:true},
-  {id:'n4',section:'navratri',sort:4,emoji:'✨',name:'Highlights',details:'No bleach',price:2999,color:'#7B3FA0',badge:'',enabled:true},
+  {id:'n3',section:'navratri',sort:3,emoji:'🎨',name:'Hair colour global',details:'Short length',price:1999,color:'#D6246E',badge:'',enabled:true},
+  {id:'n4',section:'navratri',sort:4,emoji:'✨',name:'Highlights',details:'No bleach · Short length',price:2999,color:'#7B3FA0',badge:'',enabled:true},
   {id:'n5',section:'navratri',sort:5,emoji:'🖌️',name:'Root touch-up + free haircut',details:'',price:1199,color:'#0E6C8C',badge:'',enabled:true},
   {id:'n6',section:'navratri',sort:6,emoji:'🌸',name:'Radiance facial',details:'',price:999,color:'#E0402E',badge:'',enabled:true},
   {id:'n7',section:'navratri',sort:7,emoji:'💧',name:'Hydra gel facial',details:'',price:1499,color:'#3E9B3A',badge:'',enabled:true},
@@ -1021,7 +1021,7 @@ function dealCartName(d){
   if(d.section==='spa'&&d.badge!=='addon') return `${d.name} hair spa + haircut`;
   return d.name;
 }
-function dealSub(d){return d.section==='spa'?'Hair spa offer · any length':'Navratri offer'}
+function dealSub(d){return d.section==='spa'?'Hair spa offer · any length':'Navratri offer'+(d.details?' · '+d.details.toLowerCase():'')}
 function dealToggleJS(d){return `toggleCart('deal_${d.id}','${esc(dealCartName(d))}',${Number(d.price)},'${esc(dealSub(d))}','combo')`}
 function tileHTML(d,preview){
   const a=!preview&&inCart('deal_'+d.id);
