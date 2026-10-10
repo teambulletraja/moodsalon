@@ -6,6 +6,19 @@
 <meta name="theme-color" content="#4A0B1C">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>Mood Hair & Beauty Salon — Navratri Offers · Mulund West</title>
+<meta name="description" content="Navratri offers at Mood Salon, Mulund West: Hair spa + haircut ₹699, hydra facials, hair colour, highlights and more. Book on WhatsApp.">
+<link rel="canonical" href="https://moodsalon.online/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mood Hair &amp; Beauty Salon">
+<meta property="og:url" content="https://moodsalon.online/">
+<meta property="og:title" content="Navratri Offers · Mood Salon Mulund">
+<meta property="og:description" content="Hair spa + haircut ₹699 · Hydra facials · Festive 20% off the menu. Book your festive look on WhatsApp.">
+<meta property="og:image" content="https://moodsalon.online/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mood Salon Navratri offers">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://moodsalon.online/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Great+Vibes&display=swap" rel="stylesheet">
 <style>
@@ -271,7 +284,47 @@ a{color:inherit;text-decoration:none}
 .map-link-row a{font-size:12.5px;color:var(--maroon);font-weight:600;display:flex;align-items:center;gap:6px}
 .tnc-footer{text-align:center;font-size:10px;color:var(--muted);padding:16px;line-height:1.7;border-top:1px solid var(--border);background:var(--bg2);margin-top:12px}
 .divider{height:8px;background:var(--bg)}
-.page-pad{height:80px}
+.page-pad{height:84px}
+/* quick jump */
+.jump-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:0 16px 9px}
+.jump-row::-webkit-scrollbar{display:none}
+.jump{flex-shrink:0;border:1px solid var(--border);background:#fff;border-radius:99px;padding:6px 11px;font-size:11.5px;color:var(--muted);cursor:pointer;white-space:nowrap;font-weight:500}
+.jump.on{background:var(--maroon);border-color:var(--maroon);color:#fff}
+/* live hours */
+.hstate{font-weight:700}
+.hstate.open{color:var(--green)}.hstate.shut{color:var(--sindoor)}
+/* google card */
+.g-card{margin:0 16px 12px;background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;display:flex;align-items:center;gap:12px}
+.g-score{font-family:"Playfair Display",serif;font-size:30px;font-weight:700;line-height:1;color:var(--dark)}
+.g-stars{color:var(--gold);font-size:13px;letter-spacing:1px}
+.g-cnt{font-size:11px;color:var(--muted)}
+.g-btns{display:flex;flex-direction:column;gap:6px;margin-left:auto}
+.g-btn{font-size:11px;font-weight:600;padding:7px 11px;border-radius:99px;border:1px solid var(--border);text-align:center;white-space:nowrap;color:var(--dark);background:var(--bg)}
+.g-btn.pri{background:var(--maroon);border-color:var(--maroon);color:#fff}
+/* search offers */
+.so-tag{font-size:10px;font-weight:600;margin-left:4px}
+/* bottom bars */
+.btn-call{background:#fff;color:var(--maroon);border:1.5px solid rgba(122,20,48,.25)}
+.cart-bar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:#fff;border-top:1px solid var(--border);padding:10px 14px;padding-bottom:max(10px,env(safe-area-inset-bottom));display:none}
+.cart-bar.show{display:block}
+.cb-in{display:flex;align-items:center;gap:10px;background:var(--maroon-dk);color:#fff;border-radius:99px;padding:7px 7px 7px 16px;cursor:pointer}
+.cb-txt{flex:1;line-height:1.2;min-width:0}
+.cb-txt b{font-size:13.5px;font-weight:600;display:block}
+.cb-txt span{font-size:11px;color:var(--gold-lt)}
+/* hydra upsell */
+.up-card{margin-top:7px;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#F1ECFF,#fff);border:1px solid rgba(106,63,168,.3);border-radius:9px;padding:7px 8px}
+.up-card div{flex:1;font-size:11px;line-height:1.35;color:#6B5A8A}
+.up-card b{color:#3A2780;font-weight:600}
+.up-btn{background:#6A3FA8;color:#fff;border:none;border-radius:7px;padding:6px 10px;font-size:11px;font-weight:700;cursor:pointer;flex-shrink:0}
+/* booking form */
+.f-err{font-size:11.5px;color:var(--red);margin-top:5px;display:none}
+.f-err.show{display:block}
+.form-input.bad{border-color:var(--red)}
+.stepper{display:flex;align-items:center;gap:12px}
+.st-btn{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:#fff;font-size:18px;color:var(--maroon);cursor:pointer}
+.st-val{font-family:"Playfair Display",serif;font-size:20px;font-weight:600;min-width:22px;text-align:center}
+.st-hint{font-size:11.5px;color:var(--muted)}
+.tt.past{opacity:.35;pointer-events:none;text-decoration:line-through}
 .bottom-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);padding:11px 16px;display:flex;gap:9px;z-index:200;padding-bottom:max(11px,env(safe-area-inset-bottom))}
 
 /* ── OVERLAY & DRAWERS ── */
@@ -360,7 +413,7 @@ a{color:inherit;text-decoration:none}
     <h1>NAVRATRI</h1>
     <div class="h1-sub">OFFERS</div>
     <div class="h-script script">Festive looks, bigger smiles</div>
-    <div class="h-stars"><b>★★★★★</b> 212 Google reviews</div>
+    <div class="h-stars"><b>★★★★★</b> 4.8 · 84 Google reviews</div>
     <div class="nine" aria-hidden="true"><span style="background:#F08A12"></span><span style="background:#FFFFFF"></span><span style="background:#E0402E"></span><span style="background:#2B3F9E"></span><span style="background:#F2C230"></span><span style="background:#3E9B3A"></span><span style="background:#8A8F98"></span><span style="background:#7B3FA0"></span><span style="background:#D6246E"></span></div>
     <div class="hero-btns">
       <button class="btn btn-gold btn-hero" onclick="openBook()">
@@ -379,7 +432,7 @@ a{color:inherit;text-decoration:none}
 <div class="trust">
   <div class="ti"><div class="tn">2000+</div><div class="tl">Happy clients</div></div>
   <div class="tsep"></div>
-  <div class="ti"><div class="tn">4.9★</div><div class="tl">Google rating</div></div>
+  <div class="ti"><div class="tn">4.8★</div><div class="tl">Google rating</div></div>
   <div class="tsep"></div>
   <div class="ti"><div class="tn">3 yrs</div><div class="tl">In Mulund</div></div>
   <div class="tsep"></div>
@@ -389,7 +442,7 @@ a{color:inherit;text-decoration:none}
 <!-- HOURS -->
 <div class="hours-bar">
   <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D9A441" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-  <span><span class="hopen">Open Tue–Sun · 11 AM – 8 PM</span> &nbsp;·&nbsp; <span class="hclosed">Closed Mondays</span></span>
+  <span><span class="hstate" id="hstate">Open Tue–Sun · 11 AM – 8 PM</span> &nbsp;·&nbsp; <span class="hclosed">Closed Mondays</span></span>
 </div>
 
 <!-- STICKY SEARCH + CART -->
@@ -401,6 +454,13 @@ a{color:inherit;text-decoration:none}
       <span class="sx" id="sx" onclick="clearSearch()">✕</span>
     </div>
     <button class="cart-btn" onclick="openCart()">🛒 Cart <span class="cart-count" id="cart-count">0</span></button>
+  </div>
+  <div class="jump-row" id="jump-row">
+    <button class="jump" data-t="navratri-wrap">🪔 Navratri</button>
+    <button class="jump" data-t="spa-wrap">🌿 Hair spa</button>
+    <button class="jump" data-t="hydra-wrap">💧 Hydra</button>
+    <button class="jump" data-t="menu-anchor">✂️ Full menu</button>
+    <button class="jump" data-t="reviews-anchor">⭐ Reviews</button>
   </div>
   <div class="disc-row">
     <div class="disc-label">🎉 Festive 20% off — regular menu services</div>
@@ -501,6 +561,7 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <!-- CATEGORIES -->
+<div id="menu-anchor"></div>
 <div class="cat-row-wrap">
   <div class="cat-row">
     <div class="cats" id="cat-list">
@@ -540,7 +601,20 @@ a{color:inherit;text-decoration:none}
 <div class="divider"></div>
 
 <!-- REVIEWS -->
-<div class="sec-label"><h2>What clients say</h2></div>
+<div class="sec-label" id="reviews-anchor"><h2>What clients say</h2></div>
+<div class="g-card">
+  <div>
+    <div class="g-score">4.8</div>
+  </div>
+  <div>
+    <div class="g-stars">★★★★★</div>
+    <div class="g-cnt">84 Google reviews</div>
+  </div>
+  <div class="g-btns">
+    <a class="g-btn" href="https://www.google.com/maps/place/?q=place_id:ChIJy5WEaIS55zsRvwPlxNubIl4" target="_blank">Read on Google</a>
+    <a class="g-btn pri" href="https://search.google.com/local/writereview?placeid=ChIJy5WEaIS55zsRvwPlxNubIl4" target="_blank">Write a review</a>
+  </div>
+</div>
 <div class="reviews-scroll">
   <div class="reviews-row">
     <div class="rev-card" style="--rc:#D6246E">
@@ -625,15 +699,26 @@ a{color:inherit;text-decoration:none}
 <div class="page-pad"></div>
 
 <!-- BOTTOM BAR -->
-<div class="bottom-bar">
-  <a class="btn btn-wa" style="flex:1;border-radius:99px" href="https://wa.me/918850268699?text=Hi!%20I%20have%20an%20inquiry%20about%20Mood%20Salon." target="_blank">
+<div class="bottom-bar" id="bottom-bar">
+  <a class="btn btn-call" style="flex:1;border-radius:99px;padding:13px 10px" href="tel:+918850268699">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call
+  </a>
+  <a class="btn btn-wa" style="flex:1.2;border-radius:99px;padding:13px 10px" href="https://wa.me/918850268699?text=Hi!%20I%20have%20an%20inquiry%20about%20Mood%20Salon." target="_blank">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
     WhatsApp
   </a>
-  <button class="btn btn-gold" style="flex:2;border-radius:99px" onclick="openBook()">
+  <button class="btn btn-gold" style="flex:1.3;border-radius:99px;padding:13px 10px" onclick="openBook()">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    Book appointment
+    Book
   </button>
+</div>
+<!-- FLOATING CART BAR (replaces bottom bar once something is added) -->
+<div class="cart-bar" id="cart-bar">
+  <div class="cb-in" onclick="openCart()">
+    <div class="cb-txt"><b id="cb-count">0 services</b><span id="cb-total">₹0 · view cart</span></div>
+    <button class="btn btn-gold btn-sm" style="padding:9px 16px" onclick="event.stopPropagation();openBook()">Book →</button>
+  </div>
 </div>
 
 <!-- OVERLAY -->
@@ -679,10 +764,13 @@ a{color:inherit;text-decoration:none}
     </div>
     <div id="bform">
       <div class="csp" id="csp"></div>
-      <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" id="bk-name" placeholder="Full name" autocomplete="name"></div>
-      <div class="form-group"><label class="form-label">Phone number</label><input class="form-input" type="tel" id="bk-phone" placeholder="+91 98765 43210" autocomplete="tel"></div>
-      <div class="form-group"><label class="form-label">Choose a date</label><div class="date-grid" id="dgrid"></div></div>
-      <div class="form-group"><label class="form-label">Choose a time</label><div class="time-grid" id="tgrid"></div></div>
+      <div class="form-group"><label class="form-label">Your name</label><input class="form-input" type="text" id="bk-name" placeholder="Full name" autocomplete="name" oninput="clrErr('name')"><div class="f-err" id="err-name">Enter your name</div></div>
+      <div class="form-group"><label class="form-label">Phone number</label><input class="form-input" type="tel" id="bk-phone" placeholder="98765 43210" autocomplete="tel" inputmode="numeric" oninput="clrErr('phone')"><div class="f-err" id="err-phone">Enter a 10-digit mobile number</div></div>
+      <div class="form-group"><label class="form-label">How many people?</label>
+        <div class="stepper"><button class="st-btn" type="button" onclick="setPeople(-1)" aria-label="Fewer people">−</button><span class="st-val" id="ppl">1</span><button class="st-btn" type="button" onclick="setPeople(1)" aria-label="More people">+</button><span class="st-hint" id="ppl-hint">Just me</span></div>
+      </div>
+      <div class="form-group"><label class="form-label">Choose a date</label><div class="date-grid" id="dgrid"></div><div class="f-err" id="err-date">Choose a date</div></div>
+      <div class="form-group"><label class="form-label">Choose a time</label><div class="time-grid" id="tgrid"></div><div class="f-err" id="err-time">Choose a time</div></div>
       <div class="form-group"><label class="form-label">Notes (optional)</label><textarea class="form-input" id="bk-notes" rows="2" placeholder="Any special requests…" style="resize:none"></textarea></div>
     </div>
   </div>
@@ -696,7 +784,7 @@ a{color:inherit;text-decoration:none}
 
 
 <script>
-// ══════════════ VERSION: Navratri v1.3 · 9 Oct 2026 · Gel facial, Hydra facial offer (+₹500 upgrade, 20% off applies) ══════════════
+// ══════════════ VERSION: Navratri v1.4 · 10 Oct 2026 · smart slots, live hours, quick-jump, offer search, cart bar + hydra upsell, call, group booking, link preview ══════════════
 
 
 // ══════════════ SERVICE MENU (regular prices, no discount toggle) ══════════════
@@ -758,7 +846,7 @@ const DEFAULT_DEALS=[
   {id:'n4',section:'navratri',sort:4,emoji:'✨',name:'Highlights',details:'No bleach',price:2999,color:'#7B3FA0',badge:'',enabled:true},
   {id:'n5',section:'navratri',sort:5,emoji:'🖌️',name:'Root touch-up + free haircut',details:'',price:1199,color:'#0E6C8C',badge:'',enabled:true},
   {id:'n6',section:'navratri',sort:6,emoji:'🌸',name:'Radiance facial',details:'',price:999,color:'#E0402E',badge:'',enabled:true},
-  {id:'n7',section:'navratri',sort:7,emoji:'💧',name:'Hydra facial',details:'',price:1499,color:'#3E9B3A',badge:'',enabled:true},
+  {id:'n7',section:'navratri',sort:7,emoji:'💧',name:'Hydra gel facial',details:'',price:1499,color:'#3E9B3A',badge:'',enabled:true},
   {id:'n8',section:'navratri',sort:8,emoji:'💎',name:'Hair botox treatment',details:'Any length',price:3999,color:'#2B3F9E',badge:'',enabled:true},
   {id:'s1',section:'spa',sort:1,emoji:'',name:"L'Oréal",details:'Professionnel',price:699,color:'#7A1430',badge:'',enabled:true},
   {id:'s2',section:'spa',sort:2,emoji:'',name:'Argan',details:'Pure argan oil',price:1000,color:'#9A6B14',badge:'',enabled:true},
@@ -773,30 +861,75 @@ const DEFAULT_DEALS=[
 const DEALS=DEFAULT_DEALS;
 
 // ══════════════ STATE ══════════════
-let disc=0, activeCat='all', srchQ='', cart=[], selDate='', selTime='';
+let disc=0, activeCat='all', srchQ='', cart=[], selDate='', selTime='', people=1;
 const lenSel={};
 SVCS.forEach(s=>lenSel[s.id]=0);
 
-// ══════════════ SALON HOURS / OPEN-CLOSED LOGIC ══════════════
+// ══════════════ SALON HOURS / OPEN-CLOSED LOGIC (IST) ══════════════
+const OPEN_H=11, CLOSE_H=20;   // 11 AM – 8 PM, closed Monday
+const DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],DAYS_L=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],MONS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function nowIST(){const d=new Date();return new Date(d.getTime()+(330+d.getTimezoneOffset())*60000);}
 function isClosedDay(date){ return date.getDay()===1; } // Monday
+function dayKey(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function prettyDate(key){const [y,m,dd]=key.split('-').map(Number);const d=new Date(y,m-1,dd);return `${DAYS[d.getDay()]}, ${dd} ${MONS[m-1]}`}
+// Stable pseudo-random 0..1 per date — same number for every visitor all day
+function seed(key){let x=0;for(const ch of key)x=(x*31+ch.charCodeAt(0))>>>0;x^=x<<13;x>>>=0;x^=x>>17;x^=x<<5;x>>>=0;return (x%1000)/1000}
+// Slots a day starts with: weekends tight, Friday medium, weekdays roomy
+function baseSlots(d){
+  const r=seed(dayKey(d)),wd=d.getDay();
+  if(wd===0||wd===6) return 2+Math.floor(r*2);   // Sat/Sun: 2–3
+  if(wd===5) return 3+Math.floor(r*2);            // Fri: 3–4
+  return 4+Math.floor(r*3);                       // Tue–Thu: 4–6
+}
+// Slots left today — drops through the day, last hour = last slot
+function slotsLeftToday(now){
+  const base=baseSlots(now),h=now.getHours()+now.getMinutes()/60;
+  if(h<OPEN_H) return base;
+  if(h>=CLOSE_H) return 0;
+  if(h>=CLOSE_H-1) return 1;
+  const frac=(CLOSE_H-h)/(CLOSE_H-OPEN_H);
+  return Math.max(1,Math.min(base,Math.ceil(base*frac+0.25)));
+}
+function nextOpenDay(from){const d=new Date(from);do{d.setDate(d.getDate()+1)}while(isClosedDay(d));return d}
 function updateUrgencyBar(){
-  const now=new Date(),day=now.getDay(),hour=now.getHours();
-  const isOpenNow=!isClosedDay(now)&&hour>=11&&hour<20;
+  const now=nowIST(),h=now.getHours();
   const txt=document.getElementById('urgency-text');
-  if(isClosedDay(now)) txt.textContent="We're closed today (Monday) — book for tomorrow";
-  else if(!isOpenNow&&hour<11) txt.textContent="Opens today at 11 AM — reserve your Navratri look";
-  else if(!isOpenNow&&hour>=20) txt.textContent="Closed for today — book your festive look";
-  else txt.textContent=`Open now — ${2+(day%3)} slots left today`;
+  const wkend=now.getDay()===0||now.getDay()===6;
+  if(isClosedDay(now)||h>=CLOSE_H){
+    const nd=nextOpenDay(now),n=baseSlots(nd);
+    const tm=new Date(now);tm.setDate(now.getDate()+1);
+    const when=dayKey(nd)===dayKey(tm)?'Tomorrow':DAYS_L[nd.getDay()];
+    txt.textContent=`${isClosedDay(now)?'Closed today (Monday)':'Closed for today'} — ${when}: ${n<=3?'only '+n+' slots left':n+' slots open'}`;
+    return;
+  }
+  const n=slotsLeftToday(now);
+  if(h<OPEN_H) txt.textContent=`Opens at 11 AM — only ${n} slots today`;
+  else if(n===1) txt.textContent='Last slot today — book now';
+  else if(wkend) txt.textContent=`${DAYS_L[now.getDay()]} rush — only ${n} slots left today`;
+  else txt.textContent=`Open now — ${n} slots left today`;
+}
+function updateHoursState(){
+  const now=nowIST(),h=now.getHours(),el=document.getElementById('hstate');
+  if(!isClosedDay(now)&&h>=OPEN_H&&h<CLOSE_H){el.className='hstate open';el.textContent='● Open now · closes 8 PM';return;}
+  el.className='hstate shut';
+  if(!isClosedDay(now)&&h<OPEN_H){el.textContent='Opens today at 11 AM';return;}
+  const nd=nextOpenDay(now);
+  const tomorrow=new Date(now);tomorrow.setDate(now.getDate()+1);
+  el.textContent=`Closed now · opens ${dayKey(nd)===dayKey(tomorrow)?'tomorrow':DAYS[nd.getDay()]} 11 AM`;
 }
 function buildSlotsRow(){
-  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
   const row=document.getElementById('slots-row');
-  const today=new Date();let html='';
+  const today=nowIST();let html='';
   for(let i=0;i<7;i++){
     const d=new Date(today);d.setDate(today.getDate()+i);
-    const closed=isClosedDay(d),hot=!closed&&i<=1;
-    let tag=closed?`<div class="scl">Closed</div>`:hot?`<div class="shot">${i===0?'2 left':'3 left'}</div>`:`<div class="sok">Open</div>`;
-    html+=`<div class="slot${closed?' closed':''}${hot?' hot':''}"><div class="sd">${days[d.getDay()]}</div><div class="sdate">${d.getDate()}</div>${tag}</div>`;
+    const closed=isClosedDay(d);
+    let n=closed?0:(i===0?slotsLeftToday(today):baseSlots(d));
+    let tag,hot=false;
+    if(closed) tag=`<div class="scl">Closed</div>`;
+    else if(n===0) tag=`<div class="scl">Closed</div>`;
+    else if(n<=3){hot=true;tag=`<div class="shot">${n===1?'Last slot':n+' left'}</div>`;}
+    else tag=`<div class="sok">${n} open</div>`;
+    html+=`<div class="slot${closed||n===0?' closed':''}${hot?' hot':''}"><div class="sd">${DAYS[d.getDay()]}</div><div class="sdate">${d.getDate()}</div>${tag}</div>`;
   }
   row.innerHTML=html;
 }
@@ -849,6 +982,7 @@ function render(){
   const el=document.getElementById('services'),nr=document.getElementById('no-results');
   let html='';
   if(q){
+    html+=offerSearchHTML(q);
     html+=SVCS.filter(s=>s.title.toLowerCase().includes(q)).map(lenSvcHTML).join('');
     html+=FLAT.map(g=>flatGrpHTML(g,q)).join('');
     nr.classList.toggle('hidden',html.length>0);
@@ -861,6 +995,25 @@ function render(){
   }
   (cat==='all'?FLAT:FLAT.filter(g=>g.cat===cat)).forEach(g=>html+=flatGrpHTML(g,''));
   el.innerHTML=html||'<div class="no-results">No services in this category.</div>';
+}
+
+// Offers that match the search box (Navratri, Hair spa, Hydra)
+function offerSearchHTML(q){
+  const rows=[];
+  DEALS.filter(d=>d.enabled).forEach(d=>{
+    const hay=(d.name+' '+(d.details||'')+' '+(d.section==='spa'?'hair spa haircut offer':'navratri offer')).toLowerCase();
+    if(!hay.includes(q))return;
+    const uid='deal_'+d.id,a=inCart(uid);
+    rows.push(`<div class="svc-row"><div class="svc-name">${h(dealCartName(d))}<span class="so-tag" style="color:${d.section==='spa'?'var(--peacock)':'var(--rani)'}">· ${d.section==='spa'?'Hair spa offer':'Navratri offer'}</span></div><div class="svc-right"><div class="p-now">${inr(d.price)}</div><button class="add-btn${a?' added':''}" onclick="${dealToggleJS(d)}">${a?'✓ Added':'+ Add'}</button></div></div>`);
+  });
+  HYDRA.forEach(x=>{
+    const hay=(x.name+' '+x.base+' hydra facial offer').toLowerCase();
+    if(!hay.includes(q))return;
+    const uid='hydra_'+x.id;
+    rows.push(`<div class="svc-row"><div class="svc-name">${h(x.name)}<span class="so-tag" style="color:#6A3FA8">· Hydra offer</span></div><div class="svc-right">${priceHTML(x.price,'facials')}${addBtnHTML(uid,x.name,x.price,'Hydra facial offer','facials')}</div></div>`);
+  });
+  if(!rows.length)return '';
+  return `<div class="svc-grp" style="--gc:var(--gold)"><div class="svc-grp-hdr"><span class="svc-grp-title">🪔 Offers</span><span class="svc-grp-tag">Matching offers</span></div>${rows.join('')}</div>`;
 }
 
 // ══════════════ OFFERS — RENDER ══════════════
@@ -948,12 +1101,31 @@ function renderHydra(){
   document.getElementById('hydra-peek').innerHTML=HYDRA.map(x=>`<span class="peek">${h(x.name.replace(/^Hydra /,''))}<b>${inr(hydraNow(x.price))}</b></span>`).join('');
 }
 
+// ══════════════ QUICK-JUMP CHIPS ══════════════
+document.getElementById('jump-row').addEventListener('click',function(e){
+  const b=e.target.closest('.jump');if(!b)return;
+  const el=document.getElementById(b.dataset.t);if(!el)return;
+  if(el.classList.contains('offer-bnr')&&!el.classList.contains('open')){toggleBanner(b.dataset.t);return;}
+  const st=document.querySelector('.sticky-hdr');
+  window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-st.offsetHeight-8,behavior:'smooth'});
+});
+function updateJump(){
+  const st=document.querySelector('.sticky-hdr').offsetHeight+30;
+  let cur='';
+  ['navratri-wrap','spa-wrap','hydra-wrap','menu-anchor','reviews-anchor'].forEach(id=>{
+    const el=document.getElementById(id);
+    if(el&&el.getBoundingClientRect().top<=st+10)cur=id;
+  });
+  document.querySelectorAll('.jump').forEach(b=>b.classList.toggle('on',b.dataset.t===cur));
+}
+window.addEventListener('scroll',updateJump,{passive:true});
+
 // ══════════════ CONTROLS ══════════════
 function setLen(id,i){lenSel[id]=i;render()}
 function setDisc(d){
   disc=d;
   document.querySelectorAll('.dpill,.cdt-pill').forEach(b=>b.classList.toggle('on',parseInt(b.dataset.d)===d));
-  render();renderCart();renderDeals();updateSavingsNudge();
+  render();renderCart();renderDeals();updateSavingsNudge();updateCount();
 }
 function updateSavingsNudge(){
   const nudge=document.getElementById('savings-nudge');
@@ -985,6 +1157,13 @@ function toggleCart(uid,name,price,sub,cat){
 function updateCount(){
   const el=document.getElementById('cart-count');
   el.textContent=cart.length;el.classList.toggle('show',cart.length>0);
+  const has=cart.length>0;
+  document.getElementById('cart-bar').classList.toggle('show',has);
+  document.getElementById('bottom-bar').style.display=has?'none':'flex';
+  if(has){
+    document.getElementById('cb-count').textContent=`${cart.length} service${cart.length>1?'s':''}`;
+    document.getElementById('cb-total').textContent=`${inr(discTotal())} · view cart`;
+  }
 }
 function renderCart(){
   const body=document.getElementById('cart-body'),sum=document.getElementById('cart-sum');
@@ -1001,8 +1180,10 @@ function renderCart(){
     const price=on
       ?`<div style="text-align:right"><div style="font-size:11px;color:var(--muted);text-decoration:line-through;line-height:1.2">${inr(c.price)}</div><div class="ci-price" style="color:var(--green)">${inr(itemPrice(c))}</div></div>`
       :`<div class="ci-price">${inr(c.price)}</div>`;
+    const hy=hydraFor(c);
+    const up=hy?`<div class="up-card"><div><b>💧 Make it ${h(hy.name)}</b><br>Deeper hydration for just +₹${HYDRA_UPGRADE}</div><button class="up-btn" onclick="upgradeHydra('${c.uid}')">Upgrade</button></div>`:'';
     return `<div class="cart-item">
-      <div style="flex:1;min-width:0"><div class="ci-name">${h(c.name)}</div><div class="ci-sub">${h(c.sub||'')}</div>${tag}</div>
+      <div style="flex:1;min-width:0"><div class="ci-name">${h(c.name)}</div><div class="ci-sub">${h(c.sub||'')}</div>${tag}${up}</div>
       ${price}
       <button class="ci-rm" onclick="removeCart('${c.uid}')">✕</button>
     </div>`;
@@ -1020,6 +1201,18 @@ function renderCart(){
     ?`<div class="cs-row"><span>Subtotal</span><span>${inr(tot)}</span></div><div class="cs-row"><span>20% off (regular services)</span><span style="color:var(--green)">−${inr(saved)}</span></div>`:'')
     +`<div class="cs-row total"><span>Total</span><span>${inr(dtot)}</span></div>`;
 }
+// A regular facial in the cart → its Hydra version (if not already added)
+function hydraFor(c){
+  if(c.cat!=='facials'||!c.uid.startsWith('flat_'))return null;
+  const x=HYDRA.find(x=>x.base===c.name);
+  return x&&!inCart('hydra_'+x.id)?x:null;
+}
+function upgradeHydra(uid){
+  const c=cart.find(c=>c.uid===uid);const x=c&&hydraFor(c);if(!x)return;
+  const i=cart.indexOf(c);
+  cart.splice(i,1,{uid:'hydra_'+x.id,name:x.name,price:x.price,sub:'Hydra facial offer',cat:'facials'});
+  updateCount();renderCart();render();renderDeals();updateSavingsNudge();
+}
 function removeCart(uid){cart=cart.filter(c=>c.uid!==uid);updateCount();renderCart();render();renderDeals();updateSavingsNudge();}
 function openCart(){renderCart();document.getElementById('ov').classList.add('show');document.getElementById('cart-drawer').classList.add('show');}
 function closeCart(){document.getElementById('ov').classList.remove('show');document.getElementById('cart-drawer').classList.remove('show');}
@@ -1027,24 +1220,41 @@ function closeCartOpenBook(){closeCart();setTimeout(openBook,320);}
 function closeAll(){closeCart();closeBook();}
 
 // ══════════════ BOOKING — Monday closed, Tue–Sun 11AM–8PM ══════════════
+const TIMES=['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM'];
+function timeMins(t){const [hm,ap]=t.split(' ');let [hh,mm]=hm.split(':').map(Number);if(ap==='PM'&&hh!==12)hh+=12;return hh*60+mm}
 function buildDates(){
-  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const today=new Date();let html='',count=0;
+  const today=nowIST();let html='',count=0;
   for(let i=0;i<=16&&count<8;i++){
     const d=new Date(today);d.setDate(today.getDate()+i);
     if(isClosedDay(d))continue;
+    if(i===0&&today.getHours()*60+today.getMinutes()>timeMins(TIMES[TIMES.length-1])-30)continue; // too late to book today
     count++;
-    const key=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-    html+=`<div class="dt${selDate===key?' on':''}" onclick="pickDate('${key}',this)"><div class="dd">${days[d.getDay()]}</div><div class="dn">${d.getDate()}</div><div class="dm">${mons[d.getMonth()]}</div></div>`;
+    const key=dayKey(d);
+    html+=`<div class="dt${selDate===key?' on':''}" onclick="pickDate('${key}',this)"><div class="dd">${DAYS[d.getDay()]}</div><div class="dn">${d.getDate()}</div><div class="dm">${MONS[d.getMonth()]}</div></div>`;
   }
   document.getElementById('dgrid').innerHTML=html;
 }
-function pickDate(k,el){selDate=k;document.querySelectorAll('.dt').forEach(x=>x.classList.remove('on'));el.classList.add('on');}
-function buildTimes(){
-  const slots=['11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM','5:30 PM','6:00 PM','6:30 PM','7:00 PM','7:30 PM'];
-  document.getElementById('tgrid').innerHTML=slots.map(t=>`<div class="tt${selTime===t?' on':''}" onclick="pickTime('${t}',this)">${t}</div>`).join('');
+function pickDate(k,el){
+  selDate=k;document.querySelectorAll('.dt').forEach(x=>x.classList.remove('on'));el.classList.add('on');clrErr('date');
+  buildTimes();
 }
-function pickTime(t,el){selTime=t;document.querySelectorAll('.tt').forEach(x=>x.classList.remove('on'));el.classList.add('on');}
+function buildTimes(){
+  const now=nowIST(),isToday=selDate===dayKey(now),cut=now.getHours()*60+now.getMinutes()+30;
+  if(isToday&&selTime&&timeMins(selTime)<cut)selTime='';
+  document.getElementById('tgrid').innerHTML=TIMES.map(t=>{
+    const past=isToday&&timeMins(t)<cut;
+    return `<div class="tt${selTime===t?' on':''}${past?' past':''}" onclick="pickTime('${t}',this)">${t}</div>`;
+  }).join('');
+}
+function pickTime(t,el){selTime=t;document.querySelectorAll('.tt').forEach(x=>x.classList.remove('on'));el.classList.add('on');clrErr('time');}
+function setPeople(d){
+  people=Math.max(1,Math.min(10,people+d));
+  document.getElementById('ppl').textContent=people;
+  document.getElementById('ppl-hint').textContent=people===1?'Just me':`We'll keep ${people} chairs together`;
+}
+function showErr(k){document.getElementById('err-'+k).classList.add('show');const i=document.getElementById('bk-'+k);if(i)i.classList.add('bad');}
+function clrErr(k){document.getElementById('err-'+k).classList.remove('show');const i=document.getElementById('bk-'+k);if(i)i.classList.remove('bad');}
+function cleanPhone(v){let d=v.replace(/\D/g,'');if(d.length===12&&d.startsWith('91'))d=d.slice(2);if(d.length===11&&d.startsWith('0'))d=d.slice(1);return /^[6-9]\d{9}$/.test(d)?d:''}
 function openBook(){
   const csp=document.getElementById('csp');
   if(cart.length){
@@ -1058,7 +1268,7 @@ function openBook(){
   }
   document.getElementById('succ').classList.remove('show');
   document.getElementById('bform').style.display='block';
-  selDate='';selTime='';buildDates();buildTimes();
+  selDate='';selTime='';people=1;setPeople(0);['name','phone','date','time'].forEach(clrErr);buildDates();buildTimes();
   document.getElementById('ov').classList.add('show');
   document.getElementById('book-drawer').classList.add('show');
 }
@@ -1067,14 +1277,17 @@ function submitBook(){
   const name=document.getElementById('bk-name').value.trim();
   const phone=document.getElementById('bk-phone').value.trim();
   const notes=document.getElementById('bk-notes').value.trim();
-  if(!name){alert('Please enter your name');return;}
-  if(!phone){alert('Please enter your phone number');return;}
-  if(!selDate){alert('Please choose a date');return;}
-  if(!selTime){alert('Please choose a time');return;}
+  const ph=cleanPhone(phone);
+  let first='';
+  if(!name){showErr('name');first=first||'bk-name';}
+  if(!ph){showErr('phone');first=first||'bk-phone';}
+  if(!selDate){showErr('date');first=first||'dgrid';}
+  if(!selTime){showErr('time');first=first||'tgrid';}
+  if(first){document.getElementById(first).scrollIntoView({behavior:'smooth',block:'center'});return;}
   const svcs=cart.length?cart.map(c=>`• ${c.name}${c.sub?' ('+c.sub+')':''}: ${inr(itemPrice(c))}${c.cat==='combo'?' (offer price)':''}`).join('\n'):'• To be discussed';
   const saved=cartTotal()-discTotal();
   const totLine=saved>0?`Subtotal: ${inr(cartTotal())}\n20% off (regular services): −${inr(saved)}\nTotal: ${inr(discTotal())}`:`Total: ${inr(discTotal())}`;
-  const msg=`Hi Aishwarya! I'd like to book an appointment at Mood Salon.\n\nName: ${name}\nPhone: ${phone}\nDate: ${selDate}\nTime: ${selTime}\n\nServices:\n${svcs}\n${totLine}${notes?'\n\nNotes: '+notes:''}`;
+  const msg=`Hi Aishwarya! I'd like to book an appointment at Mood Salon.\n\nName: ${name}\nPhone: ${ph.slice(0,5)} ${ph.slice(5)}\nPeople: ${people}\nDate: ${prettyDate(selDate)}\nTime: ${selTime}\n\nServices:\n${svcs}\n${totLine}${notes?'\n\nNotes: '+notes:''}`;
   document.getElementById('succ').classList.add('show');
   document.getElementById('bform').style.display='none';
   setTimeout(()=>window.open(`https://wa.me/918850268699?text=${encodeURIComponent(msg)}`,'_blank'),400);
@@ -1083,9 +1296,13 @@ function submitBook(){
 
 // ══════════════ INIT ══════════════
 updateUrgencyBar();
+updateHoursState();
 buildSlotsRow();
 renderDeals();
 render();
+updateCount();
+updateJump();
+setInterval(()=>{updateUrgencyBar();updateHoursState();buildSlotsRow();},5*60*1000);
 </script>
 </body>
 </html>
